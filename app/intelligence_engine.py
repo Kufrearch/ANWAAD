@@ -1,13 +1,46 @@
-
 import os
 import re
 import json
 import requests
+import joblib
+import gdown
+import streamlit as st
 
 from urllib.parse import quote
 from pathlib import Path
 
 PROJECT_PATH = Path(__file__).resolve().parents[1]
+
+# --- GOOGLE DRIVE AUTOMATED MODEL DOWNLOADER ---
+MODEL_DIR = PROJECT_PATH / "models"
+
+MODEL_FILES = {
+    "anwaad_v0.1_probability_calibrator.joblib": "1LvmVVbn7j7fR6QEcOQBSh_sAUOA1M799",
+    "anwaad_v0.1_text_encoder.joblib": "1BtANr3aheZqo_wX20jZ4ER1qaA7c0gEh",
+    "anwaad_v0.1_xgboost.joblib": "1WJaC5DOKt4Jd90N6Gj3_vp0jSD1k74MR"
+}
+
+@st.cache_resource
+def load_anwaad_artifacts():
+    MODEL_DIR.mkdir(parents=True, exist_ok=True)
+    artifacts = {}
+
+    for filename, file_id in MODEL_FILES.items():
+        file_path = MODEL_DIR / filename
+        if not file_path.exists():
+            url = f"https://drive.google.com/uc?id={file_id}"
+            gdown.download(url, str(file_path), quiet=False)
+        
+        artifacts[filename] = joblib.load(file_path)
+
+    return artifacts
+
+# Pre-load artifacts on boot
+_artifacts = load_anwaad_artifacts()
+calibrator = _artifacts["anwaad_v0.1_probability_calibrator.joblib"]
+text_encoder = _artifacts["anwaad_v0.1_text_encoder.joblib"]
+xgb_model = _artifacts["anwaad_v0.1_xgboost.joblib"]
+# -----------------------------------------------
 
 def load_json(path):
     with open(path, "r", encoding="utf-8") as f:
@@ -50,7 +83,7 @@ def extract_message_entities(text):
     text = str(text)
 
     urls = re.findall(
-        r"https?://[^\s<>\"']+",
+        r"https?://[^\s<>\"'\s]+",
         text,
         flags=re.IGNORECASE
     )

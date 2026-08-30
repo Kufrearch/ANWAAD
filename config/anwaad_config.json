@@ -1,0 +1,34 @@
+{
+  "product": {
+    "name": "ANWAAD",
+    "model_version": "v0.1",
+    "purpose": "Context Intelligence Engine",
+    "jurisdiction": "NG"
+  },
+  "risk_states": [
+    "VERIFIED",
+    "LOW RISK",
+    "UNKNOWN",
+    "SUSPICIOUS",
+    "HIGH RISK"
+  ],
+  "external_intelligence": {
+    "phone_provider": "IPQS",
+    "url_provider": "IPQS"
+  },
+  "privacy": {
+    "store_raw_sms": false,
+    "store_account_numbers": false,
+    "store_phone_numbers": false,
+    "store_otp": false,
+    "store_pin": false,
+    "store_password": false,
+    "store_bvn": false,
+    "store_nin": false
+  },
+  "official_help": {
+    "npf_nccc": "https://nccc.npf.gov.ng/",
+    "ngcert": "https://cert.gov.ng/",
+    "fccpc": "https://complaints.fccpc.gov.ng/Home/login"
+  }
+}

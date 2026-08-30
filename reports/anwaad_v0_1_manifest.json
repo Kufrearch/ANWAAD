@@ -1,0 +1,34 @@
+{
+  "product": "ANWAAD",
+  "model_version": "v0.1",
+  "build_timestamp": "2026-08-30T16:42:10.408837+00:00",
+  "components": {
+    "ml_model": "Cell 62 final artifact",
+    "telecom_registry": true,
+    "financial_registry": true,
+    "telecom_observations": true,
+    "financial_observations": true,
+    "other_observations": true,
+    "url_intelligence": "IPQS",
+    "phone_intelligence": "IPQS",
+    "standalone_url_analysis": true,
+    "standalone_phone_analysis": true,
+    "feedback_pipeline": true,
+    "privacy_sanitization": true
+  },
+  "risk_states": [
+    "VERIFIED",
+    "LOW RISK",
+    "UNKNOWN",
+    "SUSPICIOUS",
+    "HIGH RISK"
+  ],
+  "principles": [
+    "Number does not equal person",
+    "External provider scores are evidence, not verdicts",
+    "Unknown is not safe",
+    "No binary forced decision",
+    "No blind automatic retraining",
+    "Sensitive user data is minimized"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "brand": "ANWAAD",
+  "model_version": "v0.1",
+  "architecture": {
+    "text_encoder": "sentence-transformers/all-MiniLM-L6-v2",
+    "classifier": "XGBoost",
+    "semantic_dimensions": 384,
+    "structural_features": [
+      "has_url",
+      "has_phone",
+      "has_ussd",
+      "has_amount",
+      "has_otp",
+      "has_pin",
+      "has_password",
+      "has_bvn",
+      "has_nin",
+      "has_account",
+      "has_urgent",
+      "has_reward",
+      "has_expiry",
+      "has_payment",
+      "has_download",
+      "text_length",
+      "word_count",
+      "uppercase_ratio",
+      "exclamation_count",
+      "question_count"
+    ],
+    "probability_calibration": "IsotonicRegression"
+  },
+  "training_dataset": {
+    "canonical_records": 99646,
+    "training_records": 69133,
+    "validation_records": 14814,
+    "test_records": 14815
+  },
+  "knowledge_sources": [
+    "telecom_registry.json",
+    "financial_registry.json",
+    "telecom_observed_messages.jsonl",
+    "financial_observed_messages.jsonl",
+    "other_observed_messages.jsonl"
+  ],
+  "external_intelligence": [
+    "IPQS Phone Intelligence",
+    "IPQS URL Intelligence"
+  ],
+  "principles": [
+    "Registry evidence is separate from ML probability.",
+    "External intelligence is evidence, not the final verdict.",
+    "Unknown is not automatically fraudulent.",
+    "URL presence alone is not phishing.",
+    "Sender identity alone is not proof of legitimacy.",
+    "Sensitive user data must not be unnecessarily retained."
+  ]
+}

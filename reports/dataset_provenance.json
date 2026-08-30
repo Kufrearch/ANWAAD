@@ -1,0 +1,40 @@
+{
+  "project": "ANWAAD",
+  "model_target": "ANWAAD v0.1",
+  "task": "SMS fraud / smishing classification",
+  "sources": [
+    {
+      "name": "ExAIS SMS Spam Dataset",
+      "source_id": "exais",
+      "label_used": "Spam",
+      "label_interpretation": "spam"
+    },
+    {
+      "name": "IMC25 Smishing Dataset",
+      "source_id": "imc25",
+      "label_used": "reported smishing record",
+      "label_interpretation": "reported_smishing"
+    },
+    {
+      "name": "Shaghayegh Smishing Dataset",
+      "source_id": "shaghayegh",
+      "label_used": "smishing label",
+      "label_interpretation": "smishing"
+    }
+  ],
+  "split": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15,
+    "random_state": 42
+  },
+  "notes": [
+    "Original source labels are preserved.",
+    "Source provenance is preserved.",
+    "Exact duplicate messages are removed before splitting.",
+    "Normalized-message hashes are used to check leakage.",
+    "Public datasets are supervised ML training data.",
+    "Observed telecom and financial messages remain separate observation assets.",
+    "Registries remain contextual knowledge and are not converted into ML labels."
+  ]
+}

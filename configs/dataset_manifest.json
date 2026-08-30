@@ -1,0 +1,23 @@
+{
+  "project": "ANWAAD",
+  "model_version": "v0.1",
+  "created_at": "2026-08-29T18:12:58.395977+00:00",
+  "datasets": {
+    "exais": {
+      "name": "ExAIS SMS Spam Dataset",
+      "source": "Kaggle",
+      "source_url": "https://www.kaggle.com/datasets/ysfbil/exais-sms-dataset",
+      "dataset_id": "ysfbil/exais-sms-dataset"
+    },
+    "smishing_dataset": {
+      "name": "Smishing Dataset",
+      "source": "GitHub",
+      "source_url": "https://github.com/shaghayegh-hp/Smishing_Dataset"
+    },
+    "imc25": {
+      "name": "Smishing Dataset IMC25",
+      "source": "GitHub",
+      "source_url": "https://github.com/reportsmishing/Smishing-Dataset-IMC25"
+    }
+  }
+}

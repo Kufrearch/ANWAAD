@@ -1,16 +1,11 @@
 
-# Python / Colab artifacts
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
-
-# Heavy binaries, embeddings, and models
 *.npy
 *.parquet
 *.joblib
 *.bin
-
-# Heavy data directories
 data/derived/
 data/observations/
 artifacts/

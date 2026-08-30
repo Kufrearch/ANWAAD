@@ -1,0 +1,3724 @@
+{
+  "registry_metadata": {
+    "title": "Complete Bank Financial Intelligence Registry",
+    "total_institutions": 85,
+    "sectors": [
+      "Commercial Banks",
+      "Merchant Banks",
+      "Mortgage Banks",
+      "Payment Service Banks",
+      "Money Services Businesses & Digital Financial Services"
+    ],
+    "export_format": "JSON/Docx Structure",
+    "last_updated": "2026-08-27"
+  },
+  "institutions": [
+    {
+      "entity_id": "000001",
+      "canonical_name": "Sterling Bank Plc.",
+      "aliases": ["Sterling", "Sterling Bank"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["STERLING", "SterlingBank", "OneBank"],
+      "short_codes": ["822"],
+      "ussd_codes": ["*822#"],
+      "products": ["OneBank App", "Doubble", "Specta", "Sterling Retail Banking"],
+      "official_domains": ["sterling.ng"],
+      "official_subdomains": ["onebank.ng"],
+      "legitimate_message_patterns": [
+        "Credit Alert: Amt: N[AMOUNT] | Acc: [MASKED_ACC] | From: [SENDER] | Ref: [REF] | Avail Bal: N[BALANCE] | Date: [DATE]"
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Airtime purchase: *822*Amount*Phone#", "Transfer: *822*Amount*Account#"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV", "Full Card Details"],
+        "policy_statement": "Sterling Bank will never ask for your PIN, OTP, or passwords via SMS, call, or email."
+      },
+      "fraud_patterns": [
+        "Urgent requests to verify account via external web links",
+        "SMS claiming account suspension removable via link"
+      ],
+      "verification_sources": ["NDIC Official Register", "CBN License Portal"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000002",
+      "canonical_name": "Keystone Bank Limited",
+      "aliases": ["Keystone", "Keystone Bank"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["KEYSTONE", "KeystoneBnk"],
+      "short_codes": ["7111"],
+      "ussd_codes": ["*7111#"],
+      "products": ["Keystone Mobile App", "Keystone Online", "KeyMobile"],
+      "official_domains": ["keystonebankng.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Keystone Bank Credit Alert: N[AMOUNT] credited to AC [MASKED_ACC] from [SENDER]. Ref: [REF]. Bal: N[BALANCE]. [DATE]"
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Transfer: *7111*Amount*Account#"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "Keystone Bank will never solicit sensitive credentials through unverified channels."
+      },
+      "fraud_patterns": [
+        "Unsolicited messages containing short links for account update"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000003",
+      "canonical_name": "First City Monument Bank (FCMB)",
+      "aliases": ["FCMB", "First City Monument Bank"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["FCMB", "FCMBAlert"],
+      "short_codes": ["329"],
+      "ussd_codes": ["*329#"],
+      "products": ["FCMB Mobile App", "FCMB Online", "FastTransfer"],
+      "official_domains": ["fcmb.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "FCMB Credit Alert: Acct [MASKED_ACC] credited with N[AMOUNT]. Sender: [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Banking services via *329#"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "FCMB does not ask customers to click links to verify banking details."
+      },
+      "fraud_patterns": [
+        "Fake winning notifications requiring processing fees or credentials"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000004",
+      "canonical_name": "United Bank for Africa Plc.",
+      "aliases": ["UBA", "United Bank for Africa"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["UBA", "UBAMobile", "UBAAlert"],
+      "short_codes": ["919"],
+      "ussd_codes": ["*919#"],
+      "products": ["Leo (Chatbot)", "UBA Mobile Banking", "UBA Connect"],
+      "official_domains": ["ubagroup.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "UBA Credit Alert: Acct [MASKED_ACC] credited with N[AMOUNT] by [SENDER]. Ref: [REF]. Bal: N[BALANCE]. Date: [DATE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Airtime topup: *919*Amount#", "Transfer: *919*3*Account#"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "UBA will never request your secret numbers or personal security codes."
+      },
+      "fraud_patterns": [
+        "Phishing emails/SMS impersonating Leo chatbot asking for login tokens"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000005",
+      "canonical_name": "Diamond Bank",
+      "aliases": ["Diamond Bank PLC", "Access-Diamond"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "Merged into Access Bank Plc.",
+      "sender_ids": ["DiamondBank", "AccessBank"],
+      "short_codes": ["901"],
+      "ussd_codes": ["*901#"],
+      "products": ["Integrated into Access Bank platforms"],
+      "official_domains": ["accessbankplc.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Access (Diamond) Alert: Acct [MASKED_ACC] CR N[AMOUNT]. From: [SENDER]. Ref: [REF]. Avail Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["USSD code aligned with Access Bank (*901#)"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "Legacy entity rules match Access Bank security compliance."
+      },
+      "fraud_patterns": [
+        "Fake legacy account migration prompts asking for card details"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000006",
+      "canonical_name": "Jaiz Bank",
+      "aliases": ["Jaiz", "Jaiz Bank Plc"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["JAIZBANK", "JaizAlert"],
+      "short_codes": ["389301"],
+      "ussd_codes": ["*389*301#"],
+      "products": ["Jaiz Mobile App", "Jaiz Online", "Non-Interest Banking Products"],
+      "official_domains": ["jaizbankplc.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "JAIZ BANK Alert: Credit of N[AMOUNT] to [MASKED_ACC]. From: [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Non-interest banking USSD features"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "Jaiz Bank does not request online credentials via text or third-party links."
+      },
+      "fraud_patterns": [
+        "Fake Islamic loan offers requiring advance deposit or PIN input"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000007",
+      "canonical_name": "Fidelity Bank Plc.",
+      "aliases": ["Fidelity", "Fidelity Bank"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["FIDELITY", "FidelityBnk"],
+      "short_codes": ["770"],
+      "ussd_codes": ["*770#"],
+      "products": ["Fidelity Mobile App", "Fidelity Online Banking", "Ivy Chatbot"],
+      "official_domains": ["fidelitybank.ng"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Fidelity Alert: Credit N[AMOUNT] to [MASKED_ACC]. Sender: [SENDER]. Ref: [REF]. Bal: N[BALANCE]. Date: [DATE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Dial *770# for self-service banking"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "Fidelity Bank never calls or sends SMS asking for debit card PINs or OTPs."
+      },
+      "fraud_patterns": [
+        "Messages claiming card blockage solvable by sharing OTP with agent"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000008",
+      "canonical_name": "Polaris Bank Limited",
+      "aliases": ["Polaris", "Polaris Bank"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["POLARIS", "PolarisBnk"],
+      "short_codes": ["833"],
+      "ussd_codes": ["*833#"],
+      "products": ["VULTe Digital Bank", "Polaris Mobile App"],
+      "official_domains": ["polarisbanklimited.com"],
+      "official_subdomains": ["vulte.ng"],
+      "legitimate_message_patterns": [
+        "Polaris Alert: Credit of N[AMOUNT] on Acct [MASKED_ACC]. Src: [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["VULTe onboarding and USSD operations via *833#"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "Polaris Bank strictly prohibits asking users for sensitive authentication vectors."
+      },
+      "fraud_patterns": [
+        "Fake VULTe digital grant links capturing user passcodes"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000009",
+      "canonical_name": "Citi Bank",
+      "aliases": ["Citibank Nigeria Limited", "Citi"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["CITIBANK", "CitiAlert"],
+      "short_codes": [],
+      "ussd_codes": [],
+      "products": ["CitiDirect", "Corporate & Investment Banking Solutions"],
+      "official_domains": ["citigroup.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Citi Notification: Account [MASKED_ACC] credited N[AMOUNT]. Ref: [REF]. Contact your account manager for details."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Corporate online banking via CitiDirect portal"],
+      "credential_request_policy": {
+        "never_requests": ["Token Key", "Password", "PIN"],
+        "policy_statement": "Citibank will never demand hardware token codes or online credentials via phone/SMS."
+      },
+      "fraud_patterns": [
+        "Targeted BEC (Business Email Compromise) and fake payment advice PDFs"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000010",
+      "canonical_name": "Ecobank Nigeria Limited",
+      "aliases": ["Ecobank", "Ecobank Nigeria"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["ECOBANK", "EcobankAlert"],
+      "short_codes": ["326"],
+      "ussd_codes": ["*326#"],
+      "products": ["Ecobank Mobile App", "Ecobank Online", "Omni Lite"],
+      "official_domains": ["ecobank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Ecobank Alert: Credit Amt: N[AMOUNT] | Acct: [MASKED_ACC] | From: [SENDER] | Ref: [REF] | Bal: N[BALANCE]"
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Dial *326# for rapid transfers"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "Ecobank will never contact you to demand your card PIN or mobile app password."
+      },
+      "fraud_patterns": [
+        "Pan-African prize scams requesting account verification via malicious links"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000011",
+      "canonical_name": "Unity Bank Plc.",
+      "aliases": ["Unity Bank", "Unity"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["UNITYBANK", "UnityAlert"],
+      "short_codes": ["7799"],
+      "ussd_codes": ["*7799#"],
+      "products": ["UniFi App", "Unity Mobile", "Unity Online"],
+      "official_domains": ["unitybankng.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Unity Bank Alert: Acct [MASKED_ACC] CR N[AMOUNT]. Source: [SENDER]. Ref: [REF]. Avail Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Banking transactions via *7799#"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "Unity Bank maintains strict policies against soliciting credentials electronically."
+      },
+      "fraud_patterns": [
+        "SMS claiming BVN/NIN mismatch requiring login on fake domain"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000012",
+      "canonical_name": "Stanbic IBTC Bank Plc.",
+      "aliases": ["Stanbic", "Stanbic IBTC"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["STANBIC", "StanbicIBTC"],
+      "short_codes": ["909"],
+      "ussd_codes": ["*909#"],
+      "products": ["Stanbic Mobile Banking", "@Ease Wallet", "Mutual Funds"],
+      "official_domains": ["stanbicibtcbank.com"],
+      "official_subdomains": ["stanbicibtc.com"],
+      "legitimate_message_patterns": [
+        "Stanbic IBTC Alert: Credit N[AMOUNT] to Acct [MASKED_ACC]. From: [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*909# mobile operations and @Ease digital wallet management"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "Stanbic IBTC will never ask for your private banking details over calls or texts."
+      },
+      "fraud_patterns": [
+        "Phishing attempts pretending to update pension or mutual fund investments"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000013",
+      "canonical_name": "Guaranty Trust Bank (GTBank)",
+      "aliases": ["GTB", "GTBank", "Guaranty Trust"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["GTBank", "GTB", "GTWorld"],
+      "short_codes": ["737"],
+      "ussd_codes": ["*737#"],
+      "products": ["GTWorld App", "GTBank Online", "Squad Digital Payment"],
+      "official_domains": ["gtbank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "GTBank: Credit Amt: N[AMOUNT]. Acct: [MASKED_ACC]. Src: [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["USSD transfers and airtime via *737#"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV", "Card Expire"],
+        "policy_statement": "GTBank will never request your 737 PIN, hardware token code, or card PIN."
+      },
+      "fraud_patterns": [
+        "Fake *737# reset SMS containing external link for credential capture"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000014",
+      "canonical_name": "Access Bank Plc.",
+      "aliases": ["Access", "Access Bank"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["ACCESS", "AccessBank"],
+      "short_codes": ["901"],
+      "ussd_codes": ["*901#"],
+      "products": ["Access More App", "Access Online", "Access Closa"],
+      "official_domains": ["accessbankplc.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Access Bank Alert: CR N[AMOUNT] on Acct [MASKED_ACC]. From: [SENDER]. Ref: [REF]. Avail Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*901# for instant self-service transactions"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "Access Bank never asks for confidential details to resolve customer complaints."
+      },
+      "fraud_patterns": [
+        "Fake social media customer support handles requesting OTPs"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000015",
+      "canonical_name": "Zenith Bank Plc.",
+      "aliases": ["Zenith", "Zenith Bank"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["ZENITH", "ZenithBank"],
+      "short_codes": ["966"],
+      "ussd_codes": ["*966#"],
+      "products": ["Zenith Bank Mobile App", "Zenith Internet Banking", "Ziva"],
+      "official_domains": ["zenithbank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Zenith Bank Alert: Credit N[AMOUNT] to [MASKED_ACC] from [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["EazyBanking via *966#"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "Zenith Bank does not call or text requesting login authorization keys."
+      },
+      "fraud_patterns": [
+        "Spoofed SMS impersonating Zenith alert format without official sender ID"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000016",
+      "canonical_name": "First Bank of Nigeria Limited",
+      "aliases": ["FirstBank", "First Bank"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["FIRSTBANK", "FirstMonie"],
+      "short_codes": ["894"],
+      "ussd_codes": ["*894#"],
+      "products": ["FirstMobile", "FirstOnline", "FirstMonie Wallet"],
+      "official_domains": ["firstbanknigeria.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "FirstBank Alert: Credit: N[AMOUNT] on [MASKED_ACC] by [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Quick banking via *894#"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "FirstBank will never require customer PIN or passcode to update accounts."
+      },
+      "fraud_patterns": [
+        "FirstMonie agent impersonation asking for secret codes"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000017",
+      "canonical_name": "Wema Bank Plc.",
+      "aliases": ["Wema", "Wema Bank", "ALAT"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["WEMA", "WemaBank", "ALAT"],
+      "short_codes": ["945"],
+      "ussd_codes": ["*945#"],
+      "products": ["ALAT by Wema", "Wema Online", "Wema Mobile"],
+      "official_domains": ["wemabank.com"],
+      "official_subdomains": ["alat.ng"],
+      "legitimate_message_patterns": [
+        "ALAT/Wema Credit Alert: N[AMOUNT] credited to [MASKED_ACC] from [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*945# USSD and digital banking operations"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "Wema Bank and ALAT never prompt users for sensitive security data outside official apps."
+      },
+      "fraud_patterns": [
+        "Phishing websites offering ALAT loan bonuses asking for PINs"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000018",
+      "canonical_name": "Union Bank Plc.",
+      "aliases": ["Union Bank", "Union"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["UNIONBANK", "UnionAlert"],
+      "short_codes": ["826"],
+      "ussd_codes": ["*826#"],
+      "products": ["UnionMobile", "UnionOnline", "UnionOne"],
+      "official_domains": ["unionbankng.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "UnionBank Alert: Credit of N[AMOUNT] to [MASKED_ACC]. Src: [SENDER]. Ref: [REF]. Avail Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Banking transactions via *826#"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "Union Bank will never instruct customers to reveal OTPs over phone calls."
+      },
+      "fraud_patterns": [
+        "SMS claiming system maintenance and requesting account re-validation"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000020",
+      "canonical_name": "Heritage Bank",
+      "aliases": ["Heritage", "Heritage Bank Plc"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "License Revoked / NDIC Liquidation Process",
+      "sender_ids": ["HERITAGE", "HeritageBnk"],
+      "short_codes": ["745"],
+      "ussd_codes": ["*745#"],
+      "products": ["HB Mobile", "Heritage Online"],
+      "official_domains": ["hbng.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Heritage Bank Alert: Acct [MASKED_ACC] CR N[AMOUNT]. From: [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Legacy *745# services"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "Heritage Bank does not request personal security credentials."
+      },
+      "fraud_patterns": [
+        "Liquidation liquidation-payout scam links harvesting credentials"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000021",
+      "canonical_name": "Standard Chartered Bank Limited",
+      "aliases": ["Standard Chartered", "StanChart"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["SCBANK", "StanChart"],
+      "short_codes": ["977"],
+      "ussd_codes": ["*977#"],
+      "products": ["SC Mobile Nigeria", "SC Online"],
+      "official_domains": ["sc.com"],
+      "official_subdomains": ["sc.com/ng"],
+      "legitimate_message_patterns": [
+        "Standard Chartered: Credit Alert N[AMOUNT] to Acct [MASKED_ACC]. Ref: [REF]. Avail Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*977# USSD banking"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "Standard Chartered will never ask you to divulge security credentials."
+      },
+      "fraud_patterns": [
+        "International wealth investment phishing attempts"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000022",
+      "canonical_name": "SunTrust Bank Limited",
+      "aliases": ["SunTrust", "SunTrust Bank"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["SUNTRUST", "SunTrustBnk"],
+      "short_codes": ["5230"],
+      "ussd_codes": ["*5230#"],
+      "products": ["SunTrust Mobile App", "SunTrust Internet Banking"],
+      "official_domains": ["suntrustng.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "SunTrust Bank Alert: Credit N[AMOUNT] on Acct [MASKED_ACC]. Src: [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*5230# USSD features"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "SunTrust Bank never demands secret credentials electronically."
+      },
+      "fraud_patterns": [
+        "Unsolicited loan authorization messages with external links"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000023",
+      "canonical_name": "Providus Bank Plc.",
+      "aliases": ["Providus", "Providus Bank"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["PROVIDUS", "ProvidusBnk"],
+      "short_codes": ["231"],
+      "ussd_codes": ["*231#"],
+      "products": ["Providus Mobile App", "Providus Internet Banking", "Corporate APIs"],
+      "official_domains": ["providusbank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "ProvidusBank Alert: Credit N[AMOUNT] on Acct [MASKED_ACC] from [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*231# mobile service and virtual account operations"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV", "API Key"],
+        "policy_statement": "Providus Bank prohibits sharing private API keys or transaction PINs."
+      },
+      "fraud_patterns": [
+        "Fake virtual account creation links asking for login details"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000024",
+      "canonical_name": "Rand Merchant Bank",
+      "aliases": ["RMB", "RMB Nigeria"],
+      "institution_type": "Commercial Bank (Merchant Specialty)",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["RMB", "RMBBank"],
+      "short_codes": [],
+      "ussd_codes": [],
+      "products": ["Corporate Banking", "Investment Banking", "Treasury Services"],
+      "official_domains": ["randmerchantbank.com.ng"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "RMB Nigeria Notice: Corporate account [MASKED_ACC] credited N[AMOUNT]. Ref: [REF]. Balance updated."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Corporate portal services"],
+      "credential_request_policy": {
+        "never_requests": ["Corporate Token", "PIN", "Password"],
+        "policy_statement": "RMB will never prompt corporate officers for tokens via SMS."
+      },
+      "fraud_patterns": [
+        "Spoofed corporate payment release notices"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000025",
+      "canonical_name": "Titan Trust Bank Limited",
+      "aliases": ["Titan Trust", "Titan Bank"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["TITANTRUST", "TitanBank"],
+      "short_codes": ["922"],
+      "ussd_codes": ["*922#"],
+      "products": ["Titan Mobile App", "Titan Internet Banking"],
+      "official_domains": ["titantrustbank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Titan Trust Alert: Credit N[AMOUNT] to [MASKED_ACC]. Src: [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*922# USSD functionality"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "Titan Trust Bank maintains strict security around credentials."
+      },
+      "fraud_patterns": [
+        "Phishing sites attempting to clone Titan login portals"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000026",
+      "canonical_name": "Taj Bank",
+      "aliases": ["TajBank", "Taj Bank Plc"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["TAJBANK", "TajAlert"],
+      "short_codes": ["898"],
+      "ussd_codes": ["*898#"],
+      "products": ["TAJWay App", "TAJ Online Banking", "Non-Interest Banking"],
+      "official_domains": ["tajbank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "TAJBank Alert: Credit N[AMOUNT] to [MASKED_ACC] from [SENDER]. Ref: [REF]. Avail Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*898# for TAJWay banking access"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "Taj Bank will never ask for personal access keys over call or SMS."
+      },
+      "fraud_patterns": [
+        "Fake non-interest loan approval texts"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000027",
+      "canonical_name": "Globus Bank Limited",
+      "aliases": ["Globus", "Globus Bank"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["GLOBUS", "GlobusBank"],
+      "short_codes": ["989"],
+      "ussd_codes": ["*989#"],
+      "products": ["Globus Mobile App", "Globus Online"],
+      "official_domains": ["globusbank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Globus Bank Alert: Credit N[AMOUNT] to Acct [MASKED_ACC]. Sender: [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*989# USSD mobile platform"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "Globus Bank will never ask for PINs or passcodes."
+      },
+      "fraud_patterns": [
+        "Fraudulent account unblocking requests"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000029",
+      "canonical_name": "Lotus Bank",
+      "aliases": ["Lotus", "Lotus Bank Limited"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["LOTUSBANK", "LotusAlert"],
+      "short_codes": ["5045"],
+      "ussd_codes": ["*5045#"],
+      "products": ["Lotus Mobile App", "Non-Interest Digital Banking"],
+      "official_domains": ["lotusbank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "LOTUS Bank Alert: Credit N[AMOUNT] to [MASKED_ACC]. Src: [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*5045# for non-interest banking transactions"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "Lotus Bank never asks for confidential user passwords."
+      },
+      "fraud_patterns": [
+        "Fake ethical investment scheme SMS"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000030",
+      "canonical_name": "Parallex Bank Limited",
+      "aliases": ["Parallex", "Parallex Bank"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["PARALLEX", "ParallexBnk"],
+      "short_codes": ["322"],
+      "ussd_codes": ["*322#"],
+      "products": ["Parallex Mobile App", "Corporate Online Banking"],
+      "official_domains": ["parallexbank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Parallex Bank Alert: Credit N[AMOUNT] to [MASKED_ACC]. From: [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*322# USSD features"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "Parallex Bank will not solicit credentials over phone or text."
+      },
+      "fraud_patterns": [
+        "Spoofed SMS requesting security detail verification"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "000031",
+      "canonical_name": "Premium Trust Bank",
+      "aliases": ["PremiumTrust", "Premium Trust"],
+      "institution_type": "Commercial Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["PREMIUMTRUST", "PremiumBnk"],
+      "short_codes": ["000"],
+      "ussd_codes": ["*000#"],
+      "products": ["PremiumTrust Mobile", "Corporate E-Banking"],
+      "official_domains": ["premiumtrustbank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "PremiumTrust Alert: Credit N[AMOUNT] to [MASKED_ACC]. Src: [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Digital onboarding and USSD banking"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "CVV"],
+        "policy_statement": "Premium Trust Bank maintains strict policies prohibiting remote key collection."
+      },
+      "fraud_patterns": [
+        "Unsolicited messages urging users to click link to unlock accounts"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "060001",
+      "canonical_name": "Coronation Merchant Bank",
+      "aliases": ["Coronation MB", "Coronation"],
+      "institution_type": "Merchant Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["CORONATION", "CoronationMB"],
+      "short_codes": [],
+      "ussd_codes": [],
+      "products": ["Corporate Banking", "Investment Banking", "Global Markets"],
+      "official_domains": ["coronationmb.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Coronation MB: Credit Alert of N[AMOUNT] to Acct [MASKED_ACC] from [SENDER]. Ref: [REF]. Date: [DATE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Corporate portal transactions"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "Hardware Token"],
+        "policy_statement": "Coronation MB will never ask for security tokens or passwords."
+      },
+      "fraud_patterns": [
+        "Fake corporate payment wire confirmations"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "060002",
+      "canonical_name": "FBNQuest Merchant Bank",
+      "aliases": ["FBNQuest MB", "FBNQuest"],
+      "institution_type": "Merchant Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["FBNQUEST", "FBNQuestMB"],
+      "short_codes": [],
+      "ussd_codes": [],
+      "products": ["Investment Banking", "Asset Management", "Institutional Equity Trading"],
+      "official_domains": ["fbnquest.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "FBNQuest MB Notice: Account [MASKED_ACC] credited N[AMOUNT]. Ref: [REF]. Avail Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Institutional wealth portals"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "FBNQuest will never solicit security codes over phone calls or SMS."
+      },
+      "fraud_patterns": [
+        "Investment opportunity phishing messages"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "060003",
+      "canonical_name": "Nova Merchant Bank",
+      "aliases": ["Nova MB", "Nova Bank"],
+      "institution_type": "Merchant Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["NOVAMB", "NovaBank"],
+      "short_codes": [],
+      "ussd_codes": [],
+      "products": ["Wholesale Banking", "Corporate Finance", "Advisory Services"],
+      "official_domains": ["novamb.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Nova MB Alert: CR N[AMOUNT] on Acct [MASKED_ACC]. Src: [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Corporate online banking solutions"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Nova MB does not ask users to reveal credentials via email or SMS links."
+      },
+      "fraud_patterns": [
+        "Unauthorized wire transfer notification scams"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "060004",
+      "canonical_name": "Greenwich Merchant Bank",
+      "aliases": ["Greenwich MB", "Greenwich"],
+      "institution_type": "Merchant Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["GREENWICH", "GreenwichMB"],
+      "short_codes": [],
+      "ussd_codes": [],
+      "products": ["Structured Finance", "Treasury Operations", "Capital Markets"],
+      "official_domains": ["greenwichmerchantbank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Greenwich MB: Credit Alert of N[AMOUNT] to [MASKED_ACC]. Ref: [REF]. Avail Bal: N[BALANCE]. [DATE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Treasury and trade client services"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Greenwich MB never prompts for confidential codes via SMS."
+      },
+      "fraud_patterns": [
+        "Corporate trade email scams"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "070001",
+      "canonical_name": "NPF Microfinance Bank",
+      "aliases": ["NPF MFB", "Police Bank"],
+      "institution_type": "Mortgage/Specialized MFB",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["NPFMFB", "NPFBank"],
+      "short_codes": ["540"],
+      "ussd_codes": ["*540#"],
+      "products": ["Police Mortgage Loans", "Salary Advance", "Micro Loans"],
+      "official_domains": ["npfmicrofinancebank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "NPF MFB Alert: Credit N[AMOUNT] on Acct [MASKED_ACC]. Src: [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*540# USSD mobile portal"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "NPF MFB strictly forbids sharing transaction PINs or OTPs."
+      },
+      "fraud_patterns": [
+        "Police welfare grant scam messages requesting PIN details"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "070007",
+      "canonical_name": "Livingtrust Mortgage Bank PLC",
+      "aliases": ["Livingtrust", "LivingTrust MB"],
+      "institution_type": "Mortgage Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["LIVINGTRUST", "LivingTrust"],
+      "short_codes": ["7006"],
+      "ussd_codes": ["*7006#"],
+      "products": ["National Housing Fund (NHF) Loans", "Mortgage Loans", "Estate Financing"],
+      "official_domains": ["livingtrustng.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Livingtrust Alert: Credit N[AMOUNT] to Acct [MASKED_ACC]. Src: [SENDER]. Ref: [REF]. Avail Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*7006# USSD operations"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Livingtrust will never ask for secret PINs to disburse loans."
+      },
+      "fraud_patterns": [
+        "NHF loan approval scams demanding processing fees via shortlinks"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "070006",
+      "canonical_name": "Covenant MFB",
+      "aliases": ["Covenant Bank", "Covenant MFB"],
+      "institution_type": "Mortgage/Specialized MFB",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["COVENANT", "CovenantMFB"],
+      "short_codes": ["384"],
+      "ussd_codes": ["*384*00#"],
+      "products": ["Micro-Mortgage", "SME Loans", "Educational Loans"],
+      "official_domains": ["covenantmfb.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Covenant Alert: Credit Amt: N[AMOUNT] to Acct [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]. [DATE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["USSD feature code *384*00#"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Covenant MFB does not solicit customer logins over unsecured text."
+      },
+      "fraud_patterns": [
+        "Phishing texts promising instant educational grants"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "070008",
+      "canonical_name": "Page Financials",
+      "aliases": ["Page", "Page International Financial Services"],
+      "institution_type": "Mortgage/Specialized Finance",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["PAGE", "PageFinancials"],
+      "short_codes": [],
+      "ussd_codes": ["*258*11#"],
+      "products": ["Quick Loans", "Investment Products", "Mobile App"],
+      "official_domains": ["pagefinancials.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Page Financials: Credit N[AMOUNT] disbursed to [MASKED_ACC]. Ref: [REF]. Balance: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Mobile App and *258*11# service entry"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password", "BVN PIN"],
+        "policy_statement": "Page Financials will never ask for your confidential banking credentials via text."
+      },
+      "fraud_patterns": [
+        "Fake loan offer messages requiring OTP entry on third-party domains"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "070009",
+      "canonical_name": "Gateway Mortgage Bank",
+      "aliases": ["Gateway", "Gateway MB"],
+      "institution_type": "Mortgage Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["GATEWAY", "GatewayMB"],
+      "short_codes": ["322"],
+      "ussd_codes": ["*322*00#"],
+      "products": ["Home Ownership Loans", "Land Acquisition Loans", "Savings Accounts"],
+      "official_domains": ["gatewaymortgagebank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Gateway MB Alert: Acct [MASKED_ACC] CR N[AMOUNT]. Src: [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*322*00# aggregated USSD portal"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Gateway MB never requests security passwords via unencrypted SMS."
+      },
+      "fraud_patterns": [
+        "Land allocation subsidy fraud SMS"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "070010",
+      "canonical_name": "Abbey Mortgage Bank",
+      "aliases": ["Abbey", "Abbey MB"],
+      "institution_type": "Mortgage Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["ABBEY", "AbbeyMB"],
+      "short_codes": ["5103"],
+      "ussd_codes": ["*5103#"],
+      "products": ["Abbey Mobile App", "Construction Loans", "NHF Loans"],
+      "official_domains": ["abbeymortgagebank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Abbey Bank Alert: Credit N[AMOUNT] to [MASKED_ACC]. Ref: [REF]. Avail Bal: N[BALANCE]. Date: [DATE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*5103# mobile banking code"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Abbey Mortgage Bank strictly protects user PINs and OTPs."
+      },
+      "fraud_patterns": [
+        "Fake mortgage grant messages linking to credential stealing forms"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "070011",
+      "canonical_name": "Refuge Mortgage Bank",
+      "aliases": ["Refuge", "Refuge MB"],
+      "institution_type": "Mortgage Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["REFUGE", "RefugeMB"],
+      "short_codes": [],
+      "ussd_codes": ["*322*00#"],
+      "products": ["Real Estate Financing", "Targeted Mortgage Savings"],
+      "official_domains": ["refugemortgagebank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Refuge MB Alert: Credit N[AMOUNT] on Acct [MASKED_ACC] from [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Aggregated USSD services *322*00#"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Refuge MB will never solicit PINs over standard mobile calls or SMS."
+      },
+      "fraud_patterns": [
+        "Targeted housing savings scheme phishing"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "070012",
+      "canonical_name": "LBIC Mortgage Bank",
+      "aliases": ["LBIC", "Lagos Building Investment Company"],
+      "institution_type": "Mortgage Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["LBIC", "LBICBank"],
+      "short_codes": [],
+      "ussd_codes": ["*322*00#"],
+      "products": ["Social Housing Mortgages", "Rent-To-Own Scheme", "Civil Servant Loans"],
+      "official_domains": ["lbicplc.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "LBIC Alert: Acct [MASKED_ACC] CR N[AMOUNT]. Src: [SENDER]. Ref: [REF]. Avail Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*322*00# partner USSD gateway"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "LBIC will never request card details or OTPs to verify rent-to-own applications."
+      },
+      "fraud_patterns": [
+        "Lagos state housing allocation phishing scams"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "070013",
+      "canonical_name": "Platinum Mortgage Bank",
+      "aliases": ["Platinum", "Platinum MB"],
+      "institution_type": "Mortgage Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["PLATINUM", "PlatinumMB"],
+      "short_codes": [],
+      "ussd_codes": ["*322*00#"],
+      "products": ["Individual Mortgages", "Commercial Real Estate Loans"],
+      "official_domains": ["platinummortgagebank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Platinum MB: Credit N[AMOUNT] credited to [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]. Date: [DATE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*322*00# gateway access"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Platinum MB never asks for online credentials over SMS."
+      },
+      "fraud_patterns": [
+        "Unsolicited real estate disbursement SMS with fake web links"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "070014",
+      "canonical_name": "First Generation Mortgage Bank",
+      "aliases": ["FGMB", "First Generation MB"],
+      "institution_type": "Mortgage Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["FGMB", "FGMBank"],
+      "short_codes": [],
+      "ussd_codes": ["*322*00#"],
+      "products": ["Home Refinancing", "Estate Development Loans", "Savings"],
+      "official_domains": ["fgmbng.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "FGMB Alert: Acct [MASKED_ACC] credited N[AMOUNT]. Src: [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*322*00# mobile options"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "FGMB strictly guards customer passcodes against unauthorized collection."
+      },
+      "fraud_patterns": [
+        "Fake home refinancing authorization messages"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "070015",
+      "canonical_name": "Brent Mortgage Bank",
+      "aliases": ["Brent", "Brent MB"],
+      "institution_type": "Mortgage Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["BRENT", "BrentMB"],
+      "short_codes": [],
+      "ussd_codes": ["*322*00#"],
+      "products": ["Residential Loans", "Land Development Financing"],
+      "official_domains": ["brentmortgagebank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Brent MB Alert: Credit N[AMOUNT] to [MASKED_ACC]. Src: [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*322*00# USSD support"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Brent MB does not solicit login tokens electronically."
+      },
+      "fraud_patterns": [
+        "Fake loan restructuring SMS requesting OTP validation"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "070016",
+      "canonical_name": "Infinity Trust Mortgage Bank",
+      "aliases": ["Infinity Trust", "Infinity MB"],
+      "institution_type": "Mortgage Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["INFINITY", "InfinityMB"],
+      "short_codes": [],
+      "ussd_codes": ["*322*00#"],
+      "products": ["Infinity Mobile App", "NHF Loans", "Property Development"],
+      "official_domains": ["infinitytrustbank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Infinity Trust: Credit Alert N[AMOUNT] to Acct [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Infinity Mobile app and USSD access"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Infinity Trust maintains strict non-disclosure policies regarding passwords."
+      },
+      "fraud_patterns": [
+        "Phishing attacks using cloned Infinity Trust branding"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "070017",
+      "canonical_name": "Haggai Mortgage Bank",
+      "aliases": ["Haggai", "Haggai MB"],
+      "institution_type": "Mortgage Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["HAGGAI", "HaggaiMB"],
+      "short_codes": [],
+      "ussd_codes": ["*322*00#"],
+      "products": ["Faith-Based Housing Finance", "Home Loans", "Micro-Savings"],
+      "official_domains": ["haggaimb.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Haggai MB Alert: Credit of N[AMOUNT] on Acct [MASKED_ACC]. Ref: [REF]. Avail Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*322*00# access code"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Haggai MB does not send SMS demanding account authentication keys."
+      },
+      "fraud_patterns": [
+        "Fake church housing fund disbursement notices"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "070019",
+      "canonical_name": "Mayfresh Mortgage Bank",
+      "aliases": ["Mayfresh", "Mayfresh MB"],
+      "institution_type": "Mortgage Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["MAYFRESH", "MayfreshMB"],
+      "short_codes": [],
+      "ussd_codes": ["*322*00#"],
+      "products": ["Mortgage Credit", "Real Estate Investments"],
+      "official_domains": ["mayfreshmortgagebank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Mayfresh Alert: Credit N[AMOUNT] to [MASKED_ACC]. Src: [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["USSD *322*00# operations"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Mayfresh MB will never request user security credentials via SMS."
+      },
+      "fraud_patterns": [
+        "Phishing texts claiming account suspension"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "070021",
+      "canonical_name": "Coop Mortgage Bank",
+      "aliases": ["Coop Bank", "Coop MB"],
+      "institution_type": "Mortgage Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["COOPBANK", "CoopMB"],
+      "short_codes": [],
+      "ussd_codes": ["*322*00#"],
+      "products": ["Cooperative Society Mortgages", "Home Savings"],
+      "official_domains": ["coopmortgagebank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Coop Mortgage Alert: CR N[AMOUNT] to Acct [MASKED_ACC]. Ref: [REF]. Avail Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*322*00# feature code"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Coop MB never asks for online passcodes."
+      },
+      "fraud_patterns": [
+        "Cooperative dividends scam texts with external credential links"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "070022",
+      "canonical_name": "STB Mortgage Bank",
+      "aliases": ["STB", "STB MB"],
+      "institution_type": "Mortgage Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["STBMORTGAGE", "STBMB"],
+      "short_codes": [],
+      "ussd_codes": ["*322*00#"],
+      "products": ["Mortgage Loans", "Commercial Financing"],
+      "official_domains": ["stbmortgagebank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "STB Mortgage Alert: Credit N[AMOUNT] to [MASKED_ACC]. Src: [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["USSD portal *322*00#"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "STB MB strictly forbids remote collection of account passwords."
+      },
+      "fraud_patterns": [
+        "Fake loan qualification text scams"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "070023",
+      "canonical_name": "Delta Trust Mortgage Bank",
+      "aliases": ["Delta Trust", "Delta MB"],
+      "institution_type": "Mortgage Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["DELTATRUST", "DeltaTrust"],
+      "short_codes": [],
+      "ussd_codes": ["*322*00#"],
+      "products": ["State Worker Housing Loans", "Mortgage Savings"],
+      "official_domains": ["deltatrustmb.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Delta Trust Alert: Acct [MASKED_ACC] CR N[AMOUNT]. Src: [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*322*00# access gateway"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Delta Trust will never request user security details via call or SMS."
+      },
+      "fraud_patterns": [
+        "Delta state worker loan fraud SMS"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "070024",
+      "canonical_name": "HomeBase Mortgage",
+      "aliases": ["HomeBase", "HomeBase MB"],
+      "institution_type": "Mortgage Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["HOMEBASE", "HomeBaseMB"],
+      "short_codes": [],
+      "ussd_codes": ["*322*00#"],
+      "products": ["Home Renovation Loans", "Outright Purchase Mortgages"],
+      "official_domains": ["homebasemortgageng.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "HomeBase Alert: Credit N[AMOUNT] on Acct [MASKED_ACC]. Ref: [REF]. Avail Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*322*00# USSD channel"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "HomeBase MB maintains strict data security standards."
+      },
+      "fraud_patterns": [
+        "Phishing links claiming home project fund approvals"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "120001",
+      "canonical_name": "9 Payment Service Bank",
+      "aliases": ["9PSB"],
+      "institution_type": "Payment Service Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["9PSB", "9Payment"],
+      "short_codes": ["990"],
+      "ussd_codes": ["*990*0#"],
+      "products": ["9PSB Agent Network", "Digital Wallet", "Merchant Payments"],
+      "official_domains": ["9psb.com.ng"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "9PSB Alert: Credit N[AMOUNT] to Wallet [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["USSD agent & user banking via *990*0#"],
+      "credential_request_policy": {
+        "never_requests": ["Wallet PIN", "OTP"],
+        "policy_statement": "9PSB will never request wallet PINs or SMS OTP codes."
+      },
+      "fraud_patterns": [
+        "Fake agency banking registration scams targeting agent PINs"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "120002",
+      "canonical_name": "Hope Payment Service Bank",
+      "aliases": ["HopePSB", "Hope PSB"],
+      "institution_type": "Payment Service Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["HOPEPSB", "HopeBank"],
+      "short_codes": ["569"],
+      "ussd_codes": ["*569#"],
+      "products": ["Hope Digital Wallet", "Agency Banking"],
+      "official_domains": ["hopepsbank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "HopePSB Alert: Credit of N[AMOUNT] received from [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*569# USSD mobile platform"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP"],
+        "policy_statement": "HopePSB never solicits transaction PINs via text or telephone."
+      },
+      "fraud_patterns": [
+        "Unsolicited wallet credit messages followed by calls demanding a refund"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "120003",
+      "canonical_name": "MoMo Payment Service Bank",
+      "aliases": ["MoMo PSB", "MTN MoMo"],
+      "institution_type": "Payment Service Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["MoMoPSB", "MTNMoMo"],
+      "short_codes": ["671"],
+      "ussd_codes": ["*671#"],
+      "products": ["MoMo Wallet", "MoMo Agent Network", "Peer-to-Peer Transfer"],
+      "official_domains": ["momo.ng"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "MoMo PSB: You have received N[AMOUNT] from [SENDER]. Ref: [REF]. Current Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*671# for mobile wallet access"],
+      "credential_request_policy": {
+        "never_requests": ["MoMo PIN", "OTP"],
+        "policy_statement": "MoMo PSB personnel will NEVER ask for your 4-digit MoMo PIN."
+      },
+      "fraud_patterns": [
+        "Reversed transaction scams where fraudsters demand refund of accidental credits",
+        "Fake airtime promotion links"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "120004",
+      "canonical_name": "SmartCash Payment Service Bank",
+      "aliases": ["SmartCash PSB", "Airtel SmartCash"],
+      "institution_type": "Payment Service Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["SMARTCASH", "SmartCash"],
+      "short_codes": ["939"],
+      "ussd_codes": ["*939#"],
+      "products": ["SmartCash Wallet", "International Remittance Receive"],
+      "official_domains": ["smartcashpsb.ng"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "SmartCash: Account [MASKED_ACC] credited with N[AMOUNT] from [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*939# USSD mobile banking"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP"],
+        "policy_statement": "SmartCash PSB will never ask you to reveal your secret PIN."
+      },
+      "fraud_patterns": [
+        "Fake Airtel SIM upgrade SMS linked to wallet credential harvest"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "120005",
+      "canonical_name": "MoneyMaster Payment Service Bank",
+      "aliases": ["MoneyMaster PSB", "Glo MMPSB"],
+      "institution_type": "Payment Service Bank",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["MMPSB", "MoneyMaster"],
+      "short_codes": ["995"],
+      "ussd_codes": ["*995#"],
+      "products": ["G-Kala Wallet", "MoneyMaster Retail Banking"],
+      "official_domains": ["moneymasterpsb.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "MoneyMaster PSB: Credit Alert N[AMOUNT] on [MASKED_ACC]. Ref: [REF]. Avail Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*995# for G-Kala wallet management"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP"],
+        "policy_statement": "MoneyMaster PSB does not ask customers to state PINs over calls or SMS."
+      },
+      "fraud_patterns": [
+        "Fake Glo recharge lottery SMS demanding wallet validation"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100001",
+      "canonical_name": "FETS",
+      "aliases": ["fetswallet", "FETS Mobile Money"],
+      "institution_type": "Money Services Business",
+      "regulatory_status": "CBN Licensed Payment Service Provider",
+      "sender_ids": ["FETS", "fetswallet"],
+      "short_codes": ["347"],
+      "ussd_codes": ["*347#"],
+      "products": ["fetswallet", "Agent Network"],
+      "official_domains": ["fetswallet.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "FETS Alert: Credit N[AMOUNT] to Wallet [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*347# mobile wallet operations"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP"],
+        "policy_statement": "FETS strictly protects customer PINs."
+      },
+      "fraud_patterns": [
+        "Agent account takeover attempts via fake support calls"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100002",
+      "canonical_name": "Paga",
+      "aliases": ["Pagatech", "Paga Mobile"],
+      "institution_type": "Money Services Business",
+      "regulatory_status": "CBN Licensed Payment Service Provider",
+      "sender_ids": ["PAGA", "PagaMobile"],
+      "short_codes": ["242"],
+      "ussd_codes": ["*242#"],
+      "products": ["Paga Wallet", "Doroki", "Paga Agent Services"],
+      "official_domains": ["mypaga.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Paga: You have received N[AMOUNT] from [SENDER]. Ref: [REF]. Avail Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*242# for transfers and payments"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Paga will never ask for your PIN or OTP to release funds."
+      },
+      "fraud_patterns": [
+        "Phishing texts claiming pending transfer needing OTP validation"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100003",
+      "canonical_name": "Parkway-ReadyCash",
+      "aliases": ["ReadyCash", "Parkway Projects"],
+      "institution_type": "Money Services Business",
+      "regulatory_status": "CBN Licensed Payment Service Provider",
+      "sender_ids": ["READYCASH", "Parkway"],
+      "short_codes": [],
+      "ussd_codes": ["*384#"],
+      "products": ["ReadyCash Wallet", "Bank3D"],
+      "official_domains": ["parkwayprojects.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "ReadyCash Alert: Credit N[AMOUNT] on Wallet [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*384# mobile transactions"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP"],
+        "policy_statement": "ReadyCash does not request secret PINs via remote text messages."
+      },
+      "fraud_patterns": [
+        "Fake corporate payroll collection scams"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100004",
+      "canonical_name": "OPay",
+      "aliases": ["OPay Digital Services", "OPay Nigeria"],
+      "institution_type": "Money Services Business",
+      "regulatory_status": "CBN Licensed Payment Service Provider / MFB Gateway",
+      "sender_ids": ["OPay", "OPayAlert"],
+      "short_codes": ["955"],
+      "ussd_codes": ["*955#"],
+      "products": ["OPay Mobile App", "OWealth", "OPay POS"],
+      "official_domains": ["opayweb.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "OPay Credit Alert: N[AMOUNT] received from [SENDER]. Ref: [REF]. Bal: N[BALANCE]. Date: [DATE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*955# USSD wallet transfers"],
+      "credential_request_policy": {
+        "never_requests": ["Payment PIN", "OTP", "Password"],
+        "policy_statement": "OPay support staff will NEVER ask for your 6-digit payment PIN or OTP."
+      },
+      "fraud_patterns": [
+        "Fake customer support numbers on social media requesting login OTPs",
+        "Overpayment repayment scam texts"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100005",
+      "canonical_name": "Cellulant",
+      "aliases": ["Tingg", "Cellulant Nigeria"],
+      "institution_type": "Money Services Business",
+      "regulatory_status": "CBN Licensed Payment Service Provider",
+      "sender_ids": ["CELLULANT", "Tingg"],
+      "short_codes": [],
+      "ussd_codes": [],
+      "products": ["Tingg Payment Gateway", "Agrikore"],
+      "official_domains": ["cellulant.io"],
+      "official_subdomains": ["tingg.africa"],
+      "legitimate_message_patterns": [
+        "Tingg Notice: Transaction of N[AMOUNT] processed successfully. Ref: [REF]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["API payment collection notification"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "API Secret"],
+        "policy_statement": "Cellulant never demands system passcodes or keys over SMS."
+      },
+      "fraud_patterns": [
+        "Merchant payment link manipulation"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100006",
+      "canonical_name": "Etranzact",
+      "aliases": ["eTranzact International Plc"],
+      "institution_type": "Money Services Business",
+      "regulatory_status": "CBN Licensed Payment Service Provider",
+      "sender_ids": ["ETRANZACT", "PocketMoni"],
+      "short_codes": ["389"],
+      "ussd_codes": ["*389#"],
+      "products": ["PocketMoni", "CorporatePay", "BankIT"],
+      "official_domains": ["etranzact.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "eTranzact Alert: Credit N[AMOUNT] to [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*389# mobile payment gateway"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP"],
+        "policy_statement": "eTranzact will never solicit private passcode tokens."
+      },
+      "fraud_patterns": [
+        "Fake corporate payout notices demanding credentials"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100007",
+      "canonical_name": "Stanbic IBTC @Ease Wallet",
+      "aliases": ["@Ease", "Stanbic Wallet"],
+      "institution_type": "Digital Financial Service (Bank-backed)",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["STANBIC", "AtEase"],
+      "short_codes": ["909"],
+      "ussd_codes": ["*909*2#"],
+      "products": ["@Ease Wallet App", "Agent @Ease"],
+      "official_domains": ["stanbicibtc.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Stanbic @Ease: Credit N[AMOUNT] on Wallet [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*909*2# wallet dialing operations"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP"],
+        "policy_statement": "@Ease will never request wallet security PINs remotely."
+      },
+      "fraud_patterns": [
+        "Fake wallet reward messages with phishing links"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100008",
+      "canonical_name": "Ecobank Xpress Account",
+      "aliases": ["Xpress Account", "Ecobank Xpress"],
+      "institution_type": "Digital Financial Service (Bank-backed)",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["ECOBANK", "XpressAcct"],
+      "short_codes": ["326"],
+      "ussd_codes": ["*326*2#"],
+      "products": ["Xpress Account", "Xpress Cash (Cardless Withdrawal)"],
+      "official_domains": ["ecobank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Ecobank Xpress: Credit N[AMOUNT] on Acct [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*326*2# cardless withdrawal and transfer"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Xpress Cash Code"],
+        "policy_statement": "Ecobank will never ask for Xpress Cash withdrawal codes via call."
+      },
+      "fraud_patterns": [
+        "Cardless withdrawal code harvesting scams"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100010",
+      "canonical_name": "Teasymobile",
+      "aliases": ["Teasy Pay", "Teasy Mobile Money"],
+      "institution_type": "Money Services Business",
+      "regulatory_status": "CBN Licensed Payment Service Provider",
+      "sender_ids": ["TEASY", "TeasyPay"],
+      "short_codes": [],
+      "ussd_codes": ["*384*11#"],
+      "products": ["Teasy App", "Teasy Wallet"],
+      "official_domains": ["teasypay.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Teasy Alert: Credit N[AMOUNT] to Wallet [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*384*11# USSD operations"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP"],
+        "policy_statement": "Teasy Mobile does not collect user PINs over regular calls."
+      },
+      "fraud_patterns": [
+        "Fake wallet bonus messages containing external links"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100012",
+      "canonical_name": "VTNetwork",
+      "aliases": ["VCash", "VTN"],
+      "institution_type": "Money Services Business",
+      "regulatory_status": "CBN Licensed Payment Service Provider",
+      "sender_ids": ["VCASH", "VTNetwork"],
+      "short_codes": [],
+      "ussd_codes": [],
+      "products": ["VCash Payment Gateway", "Global Remittance"],
+      "official_domains": ["virtualterminalnetwork.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "VCash Notice: Credit N[AMOUNT] processed to account. Ref: [REF]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Web portal transactions"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "Password"],
+        "policy_statement": "VTNetwork strictly protects user login credentials."
+      },
+      "fraud_patterns": [
+        "Phishing emails targeting international remittance recipients"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100013",
+      "canonical_name": "AccessMoney",
+      "aliases": ["Access Money", "Access Mobile Money"],
+      "institution_type": "Digital Financial Service (Bank-backed)",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["ACCESS", "AccessMoney"],
+      "short_codes": ["901"],
+      "ussd_codes": ["*901*1#"],
+      "products": ["AccessMoney Wallet", "Agent Banking"],
+      "official_domains": ["accessbankplc.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "AccessMoney: Credit N[AMOUNT] on Wallet [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*901*1# mobile access"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP"],
+        "policy_statement": "AccessMoney follows core Access Bank security protocols."
+      },
+      "fraud_patterns": [
+        "Fake mobile money agent onboarding scams"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100014",
+      "canonical_name": "Firstmonie Wallet",
+      "aliases": ["Firstmonie", "FirstMonie"],
+      "institution_type": "Digital Financial Service (Bank-backed)",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["FIRSTBANK", "FirstMonie"],
+      "short_codes": ["894"],
+      "ussd_codes": ["*894*1#"],
+      "products": ["Firstmonie Wallet", "Firstmonie Agent Network"],
+      "official_domains": ["firstbanknigeria.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Firstmonie Alert: Credit N[AMOUNT] on Wallet [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*894*1# wallet dialing interface"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP"],
+        "policy_statement": "Firstmonie will never request your wallet transaction PIN."
+      },
+      "fraud_patterns": [
+        "Agent terminal takeover phishing attempts"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100016",
+      "canonical_name": "Fortismobile",
+      "aliases": ["Fortis MFB Mobile", "Fortis Mobile"],
+      "institution_type": "Money Services Business / Digital MFB",
+      "regulatory_status": "Historical Entity / Regulated",
+      "sender_ids": ["FORTIS", "FortisMobile"],
+      "short_codes": [],
+      "ussd_codes": ["*384*40#"],
+      "products": ["Fortis Wallet"],
+      "official_domains": ["fortismfb.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Fortis Alert: Credit N[AMOUNT] to Acct [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*384*40# legacy code"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP"],
+        "policy_statement": "Fortis never collects secret access keys remotely."
+      },
+      "fraud_patterns": [
+        "Legacy account clearance scam texts"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "Medium"
+    },
+    {
+      "entity_id": "100019",
+      "canonical_name": "Fidelity Mobile",
+      "aliases": ["Fidelity Wallet"],
+      "institution_type": "Digital Financial Service (Bank-backed)",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["FIDELITY", "FidelityMob"],
+      "short_codes": ["770"],
+      "ussd_codes": ["*770*2#"],
+      "products": ["Fidelity Mobile App", "Instant Wallet"],
+      "official_domains": ["fidelitybank.ng"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Fidelity Mobile: Credit N[AMOUNT] to [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*770*2# USSD features"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP"],
+        "policy_statement": "Fidelity Mobile strictly prohibits remote key capture."
+      },
+      "fraud_patterns": [
+        "Phishing texts claiming wallet lock out"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100022",
+      "canonical_name": "GoMoney",
+      "aliases": ["gomoney", "gomoney Nigeria"],
+      "institution_type": "Money Services Business / Digital Bank",
+      "regulatory_status": "CBN Regulated (In partnership with licensed banks)",
+      "sender_ids": ["GOMONEY", "gomoney"],
+      "short_codes": [],
+      "ussd_codes": [],
+      "products": ["gomoney App", "Digital Mastercard", "Split Bills"],
+      "official_domains": ["gomoney.global"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "gomoney: Credit Alert! N[AMOUNT] credited to your account by [SENDER]. Ref: [REF]. Avail Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["In-app push and SMS transaction logs"],
+      "credential_request_policy": {
+        "never_requests": ["Passcode", "PIN", "OTP", "CVV"],
+        "policy_statement": "gomoney team members will NEVER ask for your app passcode or OTP."
+      },
+      "fraud_patterns": [
+        "Fake virtual card authorization SMS asking for full card details"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100023",
+      "canonical_name": "TagPay",
+      "aliases": ["TagPay Nigeria"],
+      "institution_type": "Money Services Business",
+      "regulatory_status": "CBN Licensed Payment Service Provider",
+      "sender_ids": ["TAGPAY", "TagPay"],
+      "short_codes": [],
+      "ussd_codes": [],
+      "products": ["Mobile Banking Engine", "Digital Wallet"],
+      "official_domains": ["tag-pay.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "TagPay Notice: N[AMOUNT] credited to account. Ref: [REF]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Mobile API messaging"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP"],
+        "policy_statement": "TagPay never demands login details electronically."
+      },
+      "fraud_patterns": [
+        "Phishing links embedded in mobile payment alerts"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "Medium"
+    },
+    {
+      "entity_id": "100024",
+      "canonical_name": "Imperial Homes Mortgage Bank",
+      "aliases": ["Imperial Homes", "Imperial MB"],
+      "institution_type": "Mortgage Bank / Digital Services",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["IMPERIAL", "ImperialMB"],
+      "short_codes": [],
+      "ussd_codes": ["*322*00#"],
+      "products": ["Imperial Home Loans", "Mortgage Savings"],
+      "official_domains": ["imperialng.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Imperial Homes: Credit N[AMOUNT] to [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*322*00# gateway access"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP"],
+        "policy_statement": "Imperial Homes maintains non-disclosure of user passwords."
+      },
+      "fraud_patterns": [
+        "Fake mortgage allocation texts with credential forms"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100025",
+      "canonical_name": "Kongapay",
+      "aliases": ["KongaPay", "Konga Payment Platform"],
+      "institution_type": "Money Services Business",
+      "regulatory_status": "CBN Licensed Payment Service Provider",
+      "sender_ids": ["KONGAPAY", "KongaPay"],
+      "short_codes": [],
+      "ussd_codes": [],
+      "products": ["KongaPay Wallet", "E-commerce Checkout Gateway"],
+      "official_domains": ["kongapay.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "KongaPay Alert: N[AMOUNT] credited to your wallet. Ref: [REF]. Available Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Web and checkout integration notifications"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "KongaPay strictly forbids staff from collecting customer transaction PINs."
+      },
+      "fraud_patterns": [
+        "Fake shopping discount links harvesting KongaPay logins"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100026",
+      "canonical_name": "Carbon",
+      "aliases": ["GetCarbon", "Paylater"],
+      "institution_type": "Money Services Business / Digital Bank",
+      "regulatory_status": "CBN Licensed Finance Company / MFB",
+      "sender_ids": ["CARBON", "Paylater"],
+      "short_codes": ["1303"],
+      "ussd_codes": ["*1303#"],
+      "products": ["Carbon App", "Instant Loans", "Carbon Debit Card"],
+      "official_domains": ["getcarbon.co"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Carbon Alert: Credit N[AMOUNT] to your account from [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*1303# USSD loan and transfer menu"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Carbon will never call or SMS to request your 4-digit PIN or OTP."
+      },
+      "fraud_patterns": [
+        "Fake loan debt recovery messages demanding transfer to personal accounts"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100027",
+      "canonical_name": "Intellifin",
+      "aliases": ["Intellifin Solutions"],
+      "institution_type": "Money Services Business",
+      "regulatory_status": "CBN Licensed Payment Service Provider",
+      "sender_ids": ["INTELLIFIN", "Intellifin"],
+      "short_codes": [],
+      "ussd_codes": [],
+      "products": ["PayDirect", "POS Aggregation"],
+      "official_domains": ["intellifin.com.ng"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Intellifin Alert: N[AMOUNT] processed for terminal [MASKED_ACC]. Ref: [REF]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Terminal settlement notifications"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "Master Key"],
+        "policy_statement": "Intellifin does not collect system security keys over SMS."
+      },
+      "fraud_patterns": [
+        "POS terminal key injection phishing attempts"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "Medium"
+    },
+    {
+      "entity_id": "100028",
+      "canonical_name": "AG Mortgage Bank PLC",
+      "aliases": ["AG Mortgage", "AGMB"],
+      "institution_type": "Mortgage Bank / Digital Services",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["AGMORTGAGE", "AGMB"],
+      "short_codes": [],
+      "ussd_codes": ["*322*00#"],
+      "products": ["AG Housing Loans", "Targeted Mortgage Savings"],
+      "official_domains": ["agmortgagebankplc.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "AG Mortgage: Credit N[AMOUNT] to Acct [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*322*00# USSD portal"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP"],
+        "policy_statement": "AG Mortgage Bank guards customer security details."
+      },
+      "fraud_patterns": [
+        "Fake church housing fund grant messages"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100031",
+      "canonical_name": "FCMB Easy Account",
+      "aliases": ["FCMB Easy", "Easy Account"],
+      "institution_type": "Digital Financial Service (Bank-backed)",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["FCMB", "EasyAccount"],
+      "short_codes": ["329"],
+      "ussd_codes": ["*329*1#"],
+      "products": ["FCMB Easy Account", "Phone Number Account"],
+      "official_domains": ["fcmb.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "FCMB Easy: Credit N[AMOUNT] to phone account [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*329*1# phone account operation"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP"],
+        "policy_statement": "FCMB Easy Account follows standard FCMB security rules."
+      },
+      "fraud_patterns": [
+        "Unsolicited phone account activation fraud texts"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100032",
+      "canonical_name": "Contec Global",
+      "aliases": ["Contec Global Infotech", "NowNow"],
+      "institution_type": "Money Services Business",
+      "regulatory_status": "CBN Licensed Payment Service Provider",
+      "sender_ids": ["NOWNOW", "Contec"],
+      "short_codes": [],
+      "ussd_codes": [],
+      "products": ["NowNow App", "NowNow Agent Wallet"],
+      "official_domains": ["nownow.ng"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "NowNow Alert: Credit N[AMOUNT] on Wallet [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["App push and transaction SMS"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP"],
+        "policy_statement": "NowNow never demands transaction PINs remotely."
+      },
+      "fraud_patterns": [
+        "Fake agent commission payout links"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100033",
+      "canonical_name": "PalmPay",
+      "aliases": ["PalmPay Limited", "PalmPay Nigeria"],
+      "institution_type": "Money Services Business",
+      "regulatory_status": "CBN Licensed Mobile Money Operator",
+      "sender_ids": ["PalmPay", "PalmPayAlert"],
+      "short_codes": ["861"],
+      "ussd_codes": ["*861#"],
+      "products": ["PalmPay App", "PalmCoins", "PalmPay POS"],
+      "official_domains": ["palmpay.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "PalmPay Alert: You received N[AMOUNT] from [SENDER]. Ref: [REF]. Balance: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*861# USSD wallet access"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "PalmPay staff will NEVER ask for your PIN or OTP to give rewards or resolve issues."
+      },
+      "fraud_patterns": [
+        "Fake PalmCoins reward SMS demanding PIN authorization",
+        "WhatsApp support representative scams"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100034",
+      "canonical_name": "ZWallet",
+      "aliases": ["Zenith ZWallet"],
+      "institution_type": "Digital Financial Service (Bank-backed)",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["ZENITH", "ZWallet"],
+      "short_codes": ["966"],
+      "ussd_codes": ["*966*2#"],
+      "products": ["ZWallet", "Zenith Mobile Payments"],
+      "official_domains": ["zenithbank.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "ZWallet Alert: Credit N[AMOUNT] on Wallet [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*966*2# mobile dialing gateway"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP"],
+        "policy_statement": "ZWallet adheres strictly to Zenith Bank credential safety rules."
+      },
+      "fraud_patterns": [
+        "Fake wallet top-up promotion links"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100035",
+      "canonical_name": "M36",
+      "aliases": ["M36 Digital", "Union Bank M36"],
+      "institution_type": "Digital Financial Service / Investment Platform",
+      "regulatory_status": "CBN Regulated (Backed by Union Bank)",
+      "sender_ids": ["M36", "M36Invest"],
+      "short_codes": [],
+      "ussd_codes": [],
+      "products": ["M36 App", "Digital Wealth Management", "FX Trade"],
+      "official_domains": ["m36ng.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "M36 Notice: Credit N[AMOUNT] credited to your investment wallet. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["In-app alerts and official SMS logs"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "M36 never prompts users to reveal wealth management PINs or passwords."
+      },
+      "fraud_patterns": [
+        "High-yield FX trading scam links spoofing M36 branding"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100036",
+      "canonical_name": "Kegow (Chams Mobile)",
+      "aliases": ["Kegow", "Chams Mobile"],
+      "institution_type": "Money Services Business",
+      "regulatory_status": "CBN Licensed Mobile Money Operator",
+      "sender_ids": ["KEGOW", "ChamsMobile"],
+      "short_codes": [],
+      "ussd_codes": ["*384*3#"],
+      "products": ["Kegow Wallet", "Agent Services"],
+      "official_domains": ["kegow.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Kegow Alert: Credit N[AMOUNT] to Wallet [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*384*3# USSD menu"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP"],
+        "policy_statement": "Kegow does not request user PINs remotely."
+      },
+      "fraud_patterns": [
+        "Agent registration phishing links"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100039",
+      "canonical_name": "Titan-Paystack Microfinance Bank",
+      "aliases": ["Paystack MFB", "Titan-Paystack"],
+      "institution_type": "Digital MFB / Payment Service Provider",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["PAYSTACK", "TitanPaystack"],
+      "short_codes": [],
+      "ussd_codes": [],
+      "products": ["Paystack Commerce", "Titan-Paystack Accounts"],
+      "official_domains": ["paystack.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Paystack Alert: You received N[AMOUNT] on your account. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Merchant checkout & transfer webhooks"],
+      "credential_request_policy": {
+        "never_requests": ["API Secret Key", "PIN", "OTP", "Password"],
+        "policy_statement": "Paystack will NEVER request your Secret Keys or password via phone or text."
+      },
+      "fraud_patterns": [
+        "Fake checkout portals capturing card details",
+        "API key harvesting emails"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100052",
+      "canonical_name": "Beta-Access Yello",
+      "aliases": ["Access Yello", "Beta Account"],
+      "institution_type": "Digital Financial Service (Bank/Telco Alliance)",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["ACCESS", "YelloAlert"],
+      "short_codes": ["901"],
+      "ussd_codes": ["*901*11#"],
+      "products": ["Access Yello Account", "MTN Partnership Savings"],
+      "official_domains": ["accessbankplc.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Access Yello: Credit N[AMOUNT] on [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*901*11# USSD operation"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP"],
+        "policy_statement": "Access Yello never requests secret PINs electronically."
+      },
+      "fraud_patterns": [
+        "Unsolicited MTN airtime conversion loan scams"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100053",
+      "canonical_name": "Chipper Cash",
+      "aliases": ["Chipper", "Chipper Technologies"],
+      "institution_type": "Money Services Business",
+      "regulatory_status": "CBN Licensed Payment Service Provider",
+      "sender_ids": ["CHIPPER", "ChipperCash"],
+      "short_codes": [],
+      "ussd_codes": [],
+      "products": ["Chipper App", "Cross-Border Transfers", "Chipper Visa Card"],
+      "official_domains": ["chippercash.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Chipper Cash: You received N[AMOUNT] from [SENDER]. Ref: [REF]. Wallet Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["In-app push notifications and standard SMS"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Chipper Cash support will never demand your app PIN or verification code."
+      },
+      "fraud_patterns": [
+        "Cross-border transfer fee scam messages"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100054",
+      "canonical_name": "Cowrywise",
+      "aliases": ["Cowrywise Financials"],
+      "institution_type": "Money Services Business / Investment",
+      "regulatory_status": "SEC Registered Fund Manager / CBN Partnered",
+      "sender_ids": ["COWRYWISE", "Cowrywise"],
+      "short_codes": [],
+      "ussd_codes": [],
+      "products": ["Cowrywise App", "Mutual Funds", "Stash Wallet"],
+      "official_domains": ["cowrywise.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Cowrywise: N[AMOUNT] added to your Stash from [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["In-app alerts and transaction log emails/SMS"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Cowrywise will never request your secret PIN or security question answers."
+      },
+      "fraud_patterns": [
+        "Fake high-return savings plan links asking for login details"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100055",
+      "canonical_name": "FairMoney",
+      "aliases": ["FairMoney MFB", "FairMoney Microfinance Bank"],
+      "institution_type": "Money Services Business / Digital MFB",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["FAIRMONEY", "FairMoney"],
+      "short_codes": [],
+      "ussd_codes": ["*322*268#"],
+      "products": ["FairMoney App", "Instant Personal Loans", "FairMoney Debit Card"],
+      "official_domains": ["fairmoney.io"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "FairMoney: Your account has been credited with N[AMOUNT]. Ref: [REF]. Avail Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*322*268# USSD interface"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "FairMoney agents will NEVER ask for your PIN, OTP, or card details."
+      },
+      "fraud_patterns": [
+        "Loan extension phishing scams demanding advance processing fee"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100056",
+      "canonical_name": "Flutterwave",
+      "aliases": ["Flutterwave Technology", "Rave by Flutterwave"],
+      "institution_type": "Money Services Business",
+      "regulatory_status": "CBN Licensed Payment Solution Service Provider (PSSP)",
+      "sender_ids": ["FLUTTERWAVE", "FLW"],
+      "short_codes": [],
+      "ussd_codes": [],
+      "products": ["Flutterwave Checkout", "Send by Flutterwave", "Barter"],
+      "official_domains": ["flutterwave.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Flutterwave: N[AMOUNT] payment received for Ref: [REF]. Transfer details confirmed."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["Merchant webhook notifications and receipt emails/SMS"],
+      "credential_request_policy": {
+        "never_requests": ["API Keys", "PIN", "OTP", "Password"],
+        "policy_statement": "Flutterwave will never ask for your Secret Key or account password via text."
+      },
+      "fraud_patterns": [
+        "Fake store payment receipt SMS",
+        "Developer API key harvesting links"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100057",
+      "canonical_name": "Kuda Bank",
+      "aliases": ["Kuda", "Kuda Microfinance Bank"],
+      "institution_type": "Money Services Business / Digital MFB",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["Kuda", "KudaBank"],
+      "short_codes": ["894"],
+      "ussd_codes": ["*894*894#"],
+      "products": ["Kuda App", "Kuda Card", "Overdrafts"],
+      "official_domains": ["kuda.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Kuda: N[AMOUNT] was credited to your account by [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["In-app push and paired USSD feature code *894*894#"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Kuda will NEVER ask for your Pay ID, PIN, or OTP over calls or SMS."
+      },
+      "fraud_patterns": [
+        "Impersonation on Twitter/X support offering account unblocking for OTPs"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100058",
+      "canonical_name": "Moniepoint",
+      "aliases": ["Moniepoint Microfinance Bank", "TeamApt"],
+      "institution_type": "Money Services Business / Digital MFB",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["MONIEPOINT", "Moniepoint"],
+      "short_codes": ["5573"],
+      "ussd_codes": ["*5573#"],
+      "products": ["Moniepoint POS", "Moniepoint Business Account", "Personal Banking App"],
+      "official_domains": ["moniepoint.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Moniepoint: N[AMOUNT] credited to [MASKED_ACC] from [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*5573# USSD menu and POS printed receipts"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Moniepoint staff will NEVER demand customer PINs or login passcodes."
+      },
+      "fraud_patterns": [
+        "POS merchant terminal re-registration fraud",
+        "Fake settlement dispute links"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100059",
+      "canonical_name": "PiggyVest",
+      "aliases": ["PiggyTech", "Piggybank.ng"],
+      "institution_type": "Money Services Business / Savings Platform",
+      "regulatory_status": "CBN Partner Microfinance Bank Structure",
+      "sender_ids": ["PIGGYVEST", "PiggyBank"],
+      "short_codes": [],
+      "ussd_codes": [],
+      "products": ["PiggyVest App", "Flex Naira", "Safelock", "Investify"],
+      "official_domains": ["piggyvest.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "PiggyVest: Credit of N[AMOUNT] to your Flex Account. Ref: [REF]. Total Flex Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["In-app notifications and transactional emails/SMS"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "PiggyVest will NEVER call or text to ask for your password, PIN, or OTP."
+      },
+      "fraud_patterns": [
+        "Fake investment plan links asking for PiggyVest credentials"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100060",
+      "canonical_name": "Remita (SystemSpecs)",
+      "aliases": ["Remita", "SystemSpecs Limited"],
+      "institution_type": "Money Services Business / Payment Gateway",
+      "regulatory_status": "CBN Licensed Payment Solution Service Provider (PSSP)",
+      "sender_ids": ["REMITA", "SystemSpecs"],
+      "short_codes": ["402"],
+      "ussd_codes": ["*402#"],
+      "products": ["Remita Payment Gateway", "RRR Generation", "Payroll"],
+      "official_domains": ["remita.net"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Remita: Payment of N[AMOUNT] with RRR [REF] successful. Beneficiary: [SENDER]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*402# USSD payment platform"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Remita never requests personal internet banking passwords or PINs."
+      },
+      "fraud_patterns": [
+        "Fake RRR invoice generation links harvesting debit card numbers"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100061",
+      "canonical_name": "VFD Microfinance Bank (Vbank)",
+      "aliases": ["Vbank", "VFD MFB"],
+      "institution_type": "Money Services Business / Digital MFB",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["VBANK", "VFDFinance"],
+      "short_codes": ["5120"],
+      "ussd_codes": ["*5120#"],
+      "products": ["VbyVFD App", "VFD Banking APIs"],
+      "official_domains": ["vbank.ng"],
+      "official_subdomains": ["vfdmfb.com"],
+      "legitimate_message_patterns": [
+        "Vbank: Credit of N[AMOUNT] from [SENDER] to [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*5120# USSD interface"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Vbank personnel will never request your transaction PIN or OTP."
+      },
+      "fraud_patterns": [
+        "Phishing texts promising high-interest fixed deposit yield upon login"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100062",
+      "canonical_name": "Baxi (Capricorn Digital)",
+      "aliases": ["BaxiBox", "Baxi Pay"],
+      "institution_type": "Money Services Business",
+      "regulatory_status": "CBN Licensed Payment Service Provider",
+      "sender_ids": ["BAXI", "BaxiBox"],
+      "short_codes": [],
+      "ussd_codes": [],
+      "products": ["Baxi POS", "Baxi App", "Baxi Pay"],
+      "official_domains": ["baxibox.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Baxi Alert: Credit of N[AMOUNT] on Wallet [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["POS printouts and mobile App notifications"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP"],
+        "policy_statement": "Baxi will never request agent wallet PINs remotely."
+      },
+      "fraud_patterns": [
+        "Fake Baxi agent promo campaigns requesting login passwords"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100063",
+      "canonical_name": "Interswitch / Quickteller",
+      "aliases": ["Interswitch", "Quickteller"],
+      "institution_type": "Money Services Business",
+      "regulatory_status": "CBN Licensed Super-Switch & PSSP",
+      "sender_ids": ["QUICKTELLER", "INTERSWITCH"],
+      "short_codes": ["322"],
+      "ussd_codes": ["*322#"],
+      "products": ["Quickteller Web/App", "Interswitch WebPAY", "Verve Card"],
+      "official_domains": ["quickteller.com"],
+      "official_subdomains": ["interswitchgroup.com"],
+      "legitimate_message_patterns": [
+        "Quickteller: Payment of N[AMOUNT] to [SENDER] successful. Ref: [REF]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*322# USSD aggregation network"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "CVV", "Card Number"],
+        "policy_statement": "Interswitch never demands your full card credentials or OTP."
+      },
+      "fraud_patterns": [
+        "Fake Quickteller bill payment failure SMS asking for card PIN"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100064",
+      "canonical_name": "Renmoney",
+      "aliases": ["Renmoney Microfinance Bank"],
+      "institution_type": "Money Services Business / Digital MFB",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["RENMONEY", "Renmoney"],
+      "short_codes": ["720"],
+      "ussd_codes": ["*720#"],
+      "products": ["Renmoney Loans", "Renmoney Savings/Deposit App"],
+      "official_domains": ["renmoney.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Renmoney: N[AMOUNT] loan disbursed to [MASKED_ACC]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*720# USSD menu"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Renmoney will never ask you to reveal your app password or transaction PIN."
+      },
+      "fraud_patterns": [
+        "Fake Renmoney loan pre-approval texts requiring fee deposit"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100065",
+      "canonical_name": "Eyowo",
+      "aliases": ["Eyowo MFB"],
+      "institution_type": "Money Services Business / Digital MFB",
+      "regulatory_status": "CBN Regulatory Status Subject to Compliance Updates",
+      "sender_ids": ["EYOWO", "Eyowo"],
+      "short_codes": ["4255"],
+      "ussd_codes": ["*4255#"],
+      "products": ["Eyowo App", "Eyowo Card"],
+      "official_domains": ["eyowo.com"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Eyowo: You received N[AMOUNT] from [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*4255# mobile dialing portal"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Eyowo will never ask for your authentication passcode."
+      },
+      "fraud_patterns": [
+        "Phishing texts claiming account re-activation instructions"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "Medium"
+    },
+    {
+      "entity_id": "100066",
+      "canonical_name": "Sparkle",
+      "aliases": ["Sparkle Microfinance Bank"],
+      "institution_type": "Money Services Business / Digital MFB",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["SPARKLE", "SparkleMFB"],
+      "short_codes": [],
+      "ussd_codes": [],
+      "products": ["Sparkle App", "Sparkle Business", "Sparkle Card"],
+      "official_domains": ["sparkle.ng"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Sparkle: Credit Alert! N[AMOUNT] from [SENDER] credited to your account. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["In-app push and transaction notification SMS"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Sparkle will never demand your app passcode or debit card PIN."
+      },
+      "fraud_patterns": [
+        "Fake business grant notifications soliciting login credentials"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    },
+    {
+      "entity_id": "100067",
+      "canonical_name": "Rubies Bank",
+      "aliases": ["Rubies MFB", "Rubies Digital Bank"],
+      "institution_type": "Money Services Business / Digital MFB",
+      "regulatory_status": "CBN & NDIC Regulated",
+      "sender_ids": ["RUBIES", "RubiesBank"],
+      "short_codes": ["7797"],
+      "ussd_codes": ["*7797#"],
+      "products": ["Rubies App", "Open Banking APIs"],
+      "official_domains": ["rubies.ng"],
+      "official_subdomains": [],
+      "legitimate_message_patterns": [
+        "Rubies Alert: Credit N[AMOUNT] received from [SENDER]. Ref: [REF]. Bal: N[BALANCE]."
+      ],
+      "transaction_patterns": [
+        {
+          "credit_alert": {
+            "expected_elements": ["amount", "sender_or_source", "reference", "date_time", "balance"]
+          },
+          "debit_alert": {
+            "expected_elements": ["amount", "recipient_or_channel", "reference", "date_time", "balance"]
+          }
+        }
+      ],
+      "service_patterns": ["*7797# USSD menu"],
+      "credential_request_policy": {
+        "never_requests": ["PIN", "OTP", "Password"],
+        "policy_statement": "Rubies Bank strictly prohibits soliciting PINs or OTP codes."
+      },
+      "fraud_patterns": [
+        "Fake API developer integration scams"
+      ],
+      "verification_sources": ["NDIC Official Register"],
+      "last_verified": "2026-08-24",
+      "confidence": "High"
+    }
+  ]
+}

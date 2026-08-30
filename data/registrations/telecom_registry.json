@@ -1,0 +1,1051 @@
+{
+  "metadata": {
+    "schema_version": "2.0.0",
+    "registry_version": "2026.1.0",
+    "registry_status": "ACTIVE",
+    "jurisdiction": "NG",
+    "scope": "NATIONAL_TELECOM_IDENTITIES",
+    "generated_at": "2026-08-28T00:00:00Z",
+    "last_updated": "2026-08-28T00:00:00Z",
+    "update_policy": "EVIDENCE_FUSION_CONTINUOUS",
+    "verification_policy": "MULTI_SIGNAL_STRICT"
+  },
+  "providers": [
+    {
+      "identity": {
+        "entity_id": "NG-TEL-MTN",
+        "canonical_name": "MTN Nigeria Communications Plc",
+        "aliases": ["MTN", "MTN NG", "MTNN"],
+        "brand_names": ["MTN", "MTN Pulse", "MTN MoMo", "MTN Topit"],
+        "institution_type": "MOBILE_NETWORK_OPERATOR"
+      },
+      "regulatory_context": {
+        "regulatory_status": "LICENSED",
+        "regulator": "Nigerian Communications Commission (NCC)",
+        "license_context": "Unified Access Service Licence (UASL)",
+        "verification_sources": ["https://www.ncc.gov.ng/", "https://www.mtn.ng/"]
+      },
+      "sender_identity": {
+        "sender_ids": [
+          "MTN", "MTNN", "MTN N", "MTN Nigeria", "MTNN-NIN", "MTN_NIN", 
+          "MTN Topit", "MTNDataDeal", "MTN4G", "MTN4ME", "MTN Beep", 
+          "MTN10XBONUS", "MTNShare", "MTN-Says..."
+        ],
+        "short_codes": ["180", "131", "312", "303", "305", "321", "123", "556", "310"],
+        "sender_id_rules": [
+          "Must begin with MTN or MTNN prefix",
+          "Alphanumeric cases are registered via NCC-approved A2P aggregators",
+          "Hyphenated suffix supported for campaign-specific routing"
+        ],
+        "sender_id_variants": [
+          {"raw": "MTNN-NIN", "canonical": "MTN_NIN"},
+          {"raw": "MTN N", "canonical": "MTN"}
+        ],
+        "sender_context_rules": [
+          "Sender ID MTNN-NIN must only contextually relate to SIM-NIN link/verification",
+          "MTN Topit sender ID strictly dedicated to airtime/data distribution notifications"
+        ]
+      },
+      "product_intelligence": {
+        "products": [
+          {
+            "product_id": "MTN-PROD-TOPIT",
+            "canonical_name": "MTN Topit",
+            "aliases": ["MTN VTU", "Topit"],
+            "brand_name": "Topit",
+            "parent_provider": "NG-TEL-MTN",
+            "product_type": "AIRTIME_DATA_RECHARGE",
+            "product_status": "ACTIVE",
+            "associated_sender_ids": ["MTN Topit"],
+            "associated_short_codes": ["777"],
+            "associated_ussd_codes": ["*777#", "*311#"],
+            "associated_domains": ["mtn.ng"],
+            "associated_services": ["Airtime Transfer", "Electronic Recharge"],
+            "legitimate_message_contexts": ["Recharge confirmation", "VTU successful topup"],
+            "transaction_contexts": ["Airtime purchase", "Data transfer"],
+            "promotional_contexts": ["Topit bonus airtime promos"],
+            "verification": {
+              "sources": ["https://www.mtn.ng/personal/mobile/recharge-services/"],
+              "last_verified": "2026-08-28",
+              "evidence_level": "DIRECT_OPERATOR_TELEMETRY",
+              "confidence": 0.99
+            }
+          },
+          {
+            "product_id": "MTN-PROD-MOMO",
+            "canonical_name": "MoMo Payment Service Bank",
+            "aliases": ["MoMo PSB", "MTN MoMo"],
+            "brand_name": "MoMo",
+            "parent_provider": "NG-TEL-MTN",
+            "product_type": "FINANCIAL_SERVICES",
+            "product_status": "ACTIVE",
+            "associated_sender_ids": ["MoMoPSB", "MTN MoMo"],
+            "associated_short_codes": ["671"],
+            "associated_ussd_codes": ["*671#"],
+            "associated_domains": ["momopsb.com.ng", "mtn.ng"],
+            "associated_services": ["Funds Transfer", "Bill Payment", "Wallet Services"],
+            "legitimate_message_contexts": ["Debit alert", "Credit alert", "OTP for transaction confirmation"],
+            "transaction_contexts": ["P2P Transfer", "Merchant Payment"],
+            "promotional_contexts": ["Cashback promo", "Zero-fee transfer offer"],
+            "verification": {
+              "sources": ["https://www.momopsb.com.ng/"],
+              "last_verified": "2026-08-28",
+              "evidence_level": "REGULATED_FINANCIAL_PUBLIC_FILING",
+              "confidence": 1.0
+            }
+          }
+        ],
+        "product_relationships": [
+          {"parent_product": "MTN Mobile Services", "child_product": "MTN Topit", "type": "SUBSIDIARY_SERVICE"}
+        ]
+      },
+      "ussd_intelligence": {
+        "codes": [
+          {
+            "code": "*312#",
+            "service": "Data Plans",
+            "product": "MTN Mobile Data",
+            "purpose": "Data Subscription and Management",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          },
+          {
+            "code": "*310#",
+            "service": "Balance Check",
+            "product": "MTN Prepaid/Postpaid Account",
+            "purpose": "Check main airtime and data balances",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          },
+          {
+            "code": "*311#",
+            "service": "Recharge",
+            "product": "MTN Airtime Recharge",
+            "purpose": "Recharge airtime voucher",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          },
+          {
+            "code": "*303#",
+            "service": "Borrow Services",
+            "product": "MTN XtraTime",
+            "purpose": "Borrow airtime or data",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          },
+          {
+            "code": "*305#",
+            "service": "Value Added Services (VAS)",
+            "product": "MTN VAS Portal",
+            "purpose": "Manage active subscriptions and VAS stop/start",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          },
+          {
+            "code": "*996#",
+            "service": "NIN Status & SIM Replacement",
+            "product": "MTN Identity Management",
+            "purpose": "NIN-SIM linking status and verification",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          }
+        ],
+        "code_patterns": ["^\\*\\d{3}(?:\\*\\d+)*#$"],
+        "code_validation_rules": ["Code must start with * and end with #", "Must conform to NCC Harmonized Shortcode Framework"]
+      },
+      "numbering_intelligence": {
+        "prefixes": [
+          "0803", "0806", "0703", "0706", "0813", "0816", "0810", "0814", "0903", "0906", "0913", "0916"
+        ],
+        "number_formats": ["E164 (+234)", "NATIONAL_11_DIGIT (0803...)"],
+        "numbering_ranges": ["+2348030000000 to +2348039999999"],
+        "notes": ["Ported numbers (MNP) may break original network operator prefix mapping."]
+      },
+      "domain_intelligence": {
+        "official_domains": ["mtn.ng", "mtnonline.com", "momopsb.com.ng"],
+        "official_subdomains": ["myaccount.mtn.ng", "shop.mtn.ng", "simreg.mtn.ng"],
+        "legitimate_url_patterns": [
+          "^https:\\/\\/([a-zA-Z0-9-]+\\.)*mtn\\.ng(\\/.*)?$",
+          "^https:\\/\\/([a-zA-Z0-9-]+\\.)*momopsb\\.com\\.ng(\\/.*)?$"
+        ],
+        "domain_relationships": [
+          {"domain": "momopsb.com.ng", "relationship": "SUBSIDIARY_PAYMENT_BANK"}
+        ],
+        "domain_rules": [
+          "Domain must strictly use TLS (HTTPS)",
+          "Subdomains must resolve to registered MTN Nigeria IP blocks/ASNs (e.g. AS36873)"
+        ]
+      },
+      "service_intelligence": {
+        "services": ["Voice", "SMS", "Mobile Broadband", "USSD", "VTU", "Enterprise Connectivity"],
+        "bundle_services": ["Data & Voice Combos", "MTN Pulse Bundles"],
+        "data_services": ["Data Always-On", "MTN 4G Broadband", "MTN Fiber"],
+        "airtime_services": ["XtraTime", "Share 'N' Sell"],
+        "recharge_services": ["Topit", "Logical Recharge Cards", "USSD Recharge"],
+        "account_services": ["MyMTN App Portal", "Self-Care USSD"],
+        "notification_services": ["SIM Expiry Alert", "Data Usage Notification", "NIN Linking Confirmation"],
+        "promotional_services": ["MTN4ME", "10X Bonus"]
+      },
+      "message_intelligence": {
+        "legitimate_patterns": [
+          "Dear Customer, your {package} renewal of {amount} was successful.",
+          "Y'ello! Your account balance is {balance}.",
+          "Your NIN link request has been received and is being processed."
+        ],
+        "transaction_patterns": [
+          "You have received N{amount} airtime from {sender}.",
+          "You have successfully purchased {data_amount} MB/GB."
+        ],
+        "activation_patterns": [
+          "Your activation request for {service_name} has been received.",
+          "Welcome to MTN {plan_name}. You now enjoy..."
+        ],
+        "expiry_patterns": [
+          "Your data bundle will expire on {date}. Dial *312# to renew.",
+          "Warning: Your bundle expires in 24 hours."
+        ],
+        "balance_patterns": [
+          "Main balance: N{balance}. Bonus balance: N{bonus_balance}."
+        ],
+        "usage_notification_patterns": [
+          "You have used 80% of your data plan."
+        ],
+        "recharge_patterns": [
+          "Account recharged with N{amount} successful. New balance: N{balance}."
+        ],
+        "promotional_patterns": [
+          "Special offer just for you! Dial *121# to view your MTN4ME deals."
+        ],
+        "service_notification_patterns": [
+          "System maintenance scheduled for {time}."
+        ],
+        "account_notification_patterns": [
+          "Your SIM registration profile was updated."
+        ],
+        "action_request_patterns": [
+          "Kindly visit mtn.ng or dial *996# to check your NIN status."
+        ],
+        "language_markers": ["Y'ello", "Yello", "MTN4ME", "Topit", "XtraTime"]
+      },
+      "fraud_intelligence": {
+        "impersonation_patterns": [
+          "MTN-Promo Winner", "MTN-Reward-Desk", "MTN Care Team"
+        ],
+        "credential_request_patterns": [
+          "Send your MoMo PIN to claim reward", "Reply with your OTP to unlock SIM"
+        ],
+        "malicious_link_patterns": [
+          "http://mtn-free-data.online", "https://mtn-nin-link.site"
+        ],
+        "spoofing_patterns": [
+          "Using non-standard UTF characters mimicking MTN (e.g., MТN using Cyrillic T)"
+        ],
+        "sender_mismatch_patterns": [
+          "Sender ID 'MTN' sending links to third-party bit.ly shorteners for banking info"
+        ],
+        "social_engineering_patterns": [
+          "Your SIM will be permanently blocked in 1 hour if you do not pay processing fee"
+        ],
+        "urgency_patterns": [
+          "URGENT: Blocked in 15 minutes! Call 080..."
+        ],
+        "generic_claim_patterns": [
+          "Congratulations! You won 500,000 NGN in the MTN Anniversary Draw."
+        ],
+        "suspicious_behavior_patterns": [
+          "Personal mobile numbers (+234803...) sending generic MTN support messages"
+        ]
+      },
+      "verification": {
+        "verification_sources": [
+          "NCC Official Gazette on Shortcodes (2023-2026)",
+          "MTN Official Telemetry Logs"
+        ],
+        "last_verified": "2026-08-28",
+        "evidence_level": "OPERATOR_REGULATOR_CROSS_CORROBORATED",
+        "confidence": 1.0,
+        "verification_notes": ["All shortcodes reconciled against mandatory harmonized shortcode migration rules."]
+      }
+    },
+    {
+      "identity": {
+        "entity_id": "NG-TEL-AIRTEL",
+        "canonical_name": "Airtel Networks Limited",
+        "aliases": ["Airtel", "Airtel Nigeria", "Airtel-NG"],
+        "brand_names": ["Airtel", "SmartTALK", "Airtel Money", "SmartDATA"],
+        "institution_type": "MOBILE_NETWORK_OPERATOR"
+      },
+      "regulatory_context": {
+        "regulatory_status": "LICENSED",
+        "regulator": "Nigerian Communications Commission (NCC)",
+        "license_context": "Unified Access Service Licence (UASL)",
+        "verification_sources": ["https://www.ncc.gov.ng/", "https://www.airtel.com.ng/"]
+      },
+      "sender_identity": {
+        "sender_ids": [
+          "Airtel", "airtel", "Airtel-NG", "AirtelERC", "AirtelBonus", 
+          "AirtelOffer", "Airtel TV", "Airtel-DP", "Airtel Nigeria"
+        ],
+        "short_codes": ["111", "121", "312", "303", "305", "321", "310", "311"],
+        "sender_id_rules": [
+          "Case insensitive variations observed in telemetry (airtel vs Airtel)",
+          "Prefix or hyphenated variant Airtel- must resolve to Airtel Networks Ltd"
+        ],
+        "sender_id_variants": [
+          {"raw": "airtel", "canonical": "Airtel"},
+          {"raw": "Airtel-NG", "canonical": "Airtel"}
+        ],
+        "sender_context_rules": [
+          "AirtelERC strictly reserved for Electronic Recharge Code and retail topup events",
+          "Airtel TV handles OTT and streaming promotional pushes"
+        ]
+      },
+      "product_intelligence": {
+        "products": [
+          {
+            "product_id": "AIRTEL-PROD-SMARTDATA",
+            "canonical_name": "Airtel SmartDATA",
+            "aliases": ["Airtel Data"],
+            "brand_name": "SmartDATA",
+            "parent_provider": "NG-TEL-AIRTEL",
+            "product_type": "MOBILE_DATA",
+            "product_status": "ACTIVE",
+            "associated_sender_ids": ["AirtelBonus", "AirtelOffer"],
+            "associated_short_codes": ["312"],
+            "associated_ussd_codes": ["*312#"],
+            "associated_domains": ["airtel.com.ng"],
+            "associated_services": ["Mobile Data Bundles"],
+            "legitimate_message_contexts": ["Data consumption alert", "Bundle subscription success"],
+            "transaction_contexts": ["Data purchase"],
+            "promotional_contexts": ["Double Data Offers"],
+            "verification": {
+              "sources": ["https://www.airtel.com.ng/data/"],
+              "last_verified": "2026-08-28",
+              "evidence_level": "DIRECT_OPERATOR_TELEMETRY",
+              "confidence": 0.98
+            }
+          },
+          {
+            "product_id": "AIRTEL-PROD-SMARTCASH",
+            "canonical_name": "Smartcash Payment Service Bank",
+            "aliases": ["Smartcash PSB", "Airtel Smartcash"],
+            "brand_name": "Smartcash",
+            "parent_provider": "NG-TEL-AIRTEL",
+            "product_type": "FINANCIAL_SERVICES",
+            "product_status": "ACTIVE",
+            "associated_sender_ids": ["Smartcash", "SmartcashPSB"],
+            "associated_short_codes": ["939"],
+            "associated_ussd_codes": ["*939#"],
+            "associated_domains": ["smartcashpsb.com.ng", "airtel.com.ng"],
+            "associated_services": ["Mobile Wallet", "Transfers"],
+            "legitimate_message_contexts": ["Transaction OTP", "Transfer Notification"],
+            "transaction_contexts": ["P2P Transfer", "Merchant Cash-in/Cash-out"],
+            "promotional_contexts": ["Sign-up bonus promo"],
+            "verification": {
+              "sources": ["https://smartcashpsb.com.ng/"],
+              "last_verified": "2026-08-28",
+              "evidence_level": "REGULATED_FINANCIAL_PUBLIC_FILING",
+              "confidence": 1.0
+            }
+          }
+        ],
+        "product_relationships": [
+          {"parent_product": "Airtel Telecommunications", "child_product": "Smartcash PSB", "type": "SUBSIDIARY_SERVICE"}
+        ]
+      },
+      "ussd_intelligence": {
+        "codes": [
+          {
+            "code": "*312#",
+            "service": "Data Plans",
+            "product": "Airtel SmartDATA",
+            "purpose": "Buy and check data bundles",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          },
+          {
+            "code": "*310#",
+            "service": "Balance Enquiry",
+            "product": "Airtel Core Voice & Airtime",
+            "purpose": "Check main balance",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          },
+          {
+            "code": "*311#",
+            "service": "Recharge Code",
+            "product": "Airtel Airtime",
+            "purpose": "Load airtime voucher pin",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          },
+          {
+            "code": "*303#",
+            "service": "Borrow Credit",
+            "product": "Airtel Extra Credit",
+            "purpose": "Borrow airtime/data",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          },
+          {
+            "code": "*305#",
+            "service": "VAS Portal",
+            "product": "Airtel VAS",
+            "purpose": "Unsubscribe or manage VAS services",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          },
+          {
+            "code": "*996#",
+            "service": "NIN Linking",
+            "product": "Airtel KYC",
+            "purpose": "Link NIN to Airtel Line",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          }
+        ],
+        "code_patterns": ["^\\*\\d{3}(?:\\*\\d+)*#$"],
+        "code_validation_rules": ["Code must start with * and end with #"]
+      },
+      "numbering_intelligence": {
+        "prefixes": ["0802", "0808", "0708", "0812", "0701", "0902", "0907", "0901", "0912", "0911"],
+        "number_formats": ["E164 (+234)", "NATIONAL_11_DIGIT (0802...)"],
+        "numbering_ranges": ["+2348020000000 to +2348029999999"],
+        "notes": ["Portability enabled cross-operator."]
+      },
+      "domain_intelligence": {
+        "official_domains": ["airtel.com.ng", "smartcashpsb.com.ng"],
+        "official_subdomains": ["selfcare.ng.airtel.com", "care.airtel.com.ng"],
+        "legitimate_url_patterns": [
+          "^https:\\/\\/([a-zA-Z0-9-]+\\.)*airtel\\.com\\.ng(\\/.*)?$",
+          "^https:\\/\\/([a-zA-Z0-9-]+\\.)*smartcashpsb\\.com\\.ng(\\/.*)?$"
+        ],
+        "domain_relationships": [
+          {"domain": "smartcashpsb.com.ng", "relationship": "SUBSIDIARY_PAYMENT_BANK"}
+        ],
+        "domain_rules": ["Requires valid certificate issued to Airtel Networks Ltd or Smartcash PSB."]
+      },
+      "service_intelligence": {
+        "services": ["Voice", "Data", "USSD", "Smartcash Wallet"],
+        "bundle_services": ["Family Plans", "Airtel Binge Plans"],
+        "data_services": ["SmartDATA", "Airtel Home Broadband"],
+        "airtime_services": ["Extra Credit"],
+        "recharge_services": ["AirtelERC", "Paper Voucher"],
+        "account_services": ["Airtel Care App", "Self-Care Portal"],
+        "notification_services": ["Data Expiry Warning", "Low Balance Alert"],
+        "promotional_services": ["Airtel Bonus", "Airtel Offer Portal"]
+      },
+      "message_intelligence": {
+        "legitimate_patterns": [
+          "Dear customer, you have successfully renewed your data plan.",
+          "Airtel Smartcash: Your OTP for transfer is {otp}."
+        ],
+        "transaction_patterns": [
+          "Your account has been credited with N{amount}."
+        ],
+        "activation_patterns": [
+          "Welcome to Airtel! Your SIM profile has been activated."
+        ],
+        "expiry_patterns": [
+          "Your plan expires on {expiry_date}. Balance: {balance}MB."
+        ],
+        "balance_patterns": [
+          "Main balance: N{balance}. Dial *312# to buy data."
+        ],
+        "usage_notification_patterns": ["Data threshold alert: You have used 100% of your daily cap."],
+        "recharge_patterns": ["Recharge of N{amount} was successful via AirtelERC."],
+        "promotional_patterns": ["Exclusive Offer: Get 3GB for N500 today only!"],
+        "service_notification_patterns": ["Network optimization ongoing in your area."],
+        "account_notification_patterns": ["KYC update successful."],
+        "action_request_patterns": ["Link your NIN now by dialing *996#."],
+        "language_markers": ["SmartDATA", "Airtel ERC", "Smartcash", "Airtel Thanks"]
+      },
+      "fraud_intelligence": {
+        "impersonation_patterns": ["Airtel Customer Winner", "Airtel Promo Dept"],
+        "credential_request_patterns": ["Send your Smartcash PIN to claim 10,000 NGN"],
+        "malicious_link_patterns": ["http://airtel-double-data.tk", "https://airtel-bonus-claim.com"],
+        "spoofing_patterns": ["Sender ID 'A1rtel' replacing 'i' with '1'"],
+        "sender_mismatch_patterns": ["Sender ID AirtelERC asking user to visit non-Airtel domains"],
+        "social_engineering_patterns": ["Your line has been selected for 50,000 NGN support grant, send fee to activate"],
+        "urgency_patterns": ["URGENT: Your SIM will be permanently disconnected within 1 hour!"],
+        "generic_claim_patterns": ["You have won a free iPhone in Airtel Annual Raffle"],
+        "suspicious_behavior_patterns": ["Unregistered shortcodes requesting user PINs"]
+      },
+      "verification": {
+        "verification_sources": [
+          "NCC Shortcode Database",
+          "Airtel Nigeria Published Telemetry Standards"
+        ],
+        "last_verified": "2026-08-28",
+        "evidence_level": "OPERATOR_REGULATOR_CROSS_CORROBORATED",
+        "confidence": 1.0,
+        "verification_notes": ["Fully mapped to NCC framework."]
+      }
+    },
+    {
+      "identity": {
+        "entity_id": "NG-TEL-GLO",
+        "canonical_name": "Globacom Limited",
+        "aliases": ["Glo", "Globacom", "Glo Nigeria"],
+        "brand_names": ["Glo", "Glo Bumper", "Moneymaster PSB", "Glo Cafe"],
+        "institution_type": "MOBILE_NETWORK_OPERATOR"
+      },
+      "regulatory_context": {
+        "regulatory_status": "LICENSED",
+        "regulator": "Nigerian Communications Commission (NCC)",
+        "license_context": "Unified Access Service Licence (UASL)",
+        "verification_sources": ["https://www.ncc.gov.ng/", "https://www.gloworld.com/"]
+      },
+      "sender_identity": {
+        "sender_ids": [
+          "GLO", "Globacom", "GloRewards", "Glo My-G", "GLO DATA", 
+          "GLO PMS", "GLO 4G SIM", "GLO PROMO", "Glo Data", "Glo BoroMe"
+        ],
+        "short_codes": ["121", "312", "303", "305", "321", "310", "311"],
+        "sender_id_rules": [
+          "Must match GLO prefix pattern",
+          "Includes space-separated variants used in legacy SMS gateways (e.g. 'GLO DATA')"
+        ],
+        "sender_id_variants": [
+          {"raw": "Glo Data", "canonical": "GLO DATA"},
+          {"raw": "GLO", "canonical": "Globacom"}
+        ],
+        "sender_context_rules": [
+          "Glo BoroMe sender ID solely used for credit lending notifications",
+          "GloRewards designated for customer retention loyalty notifications"
+        ]
+      },
+      "product_intelligence": {
+        "products": [
+          {
+            "product_id": "GLO-PROD-DATA",
+            "canonical_name": "Glo Data Services",
+            "aliases": ["Glo Data", "Glo High Speed Data"],
+            "brand_name": "Glo Data",
+            "parent_provider": "NG-TEL-GLO",
+            "product_type": "MOBILE_DATA",
+            "product_status": "ACTIVE",
+            "associated_sender_ids": ["GLO DATA", "Glo Data"],
+            "associated_short_codes": ["312"],
+            "associated_ussd_codes": ["*312#"],
+            "associated_domains": ["gloworld.com"],
+            "associated_services": ["Internet Bundles"],
+            "legitimate_message_contexts": ["Data purchase confirmation", "Expiry notification"],
+            "transaction_contexts": ["Data subscription"],
+            "promotional_contexts": ["Glo Data Overload Promos"],
+            "verification": {
+              "sources": ["https://www.gloworld.com/ng/personal/data/"],
+              "last_verified": "2026-08-28",
+              "evidence_level": "DIRECT_OPERATOR_TELEMETRY",
+              "confidence": 0.99
+            }
+          },
+          {
+            "product_id": "GLO-PROD-MONEYMASTER",
+            "canonical_name": "Moneymaster Payment Service Bank",
+            "aliases": ["Moneymaster PSB", "MMPSB"],
+            "brand_name": "Moneymaster",
+            "parent_provider": "NG-TEL-GLO",
+            "product_type": "FINANCIAL_SERVICES",
+            "product_status": "ACTIVE",
+            "associated_sender_ids": ["MoneyMaster", "MMPSB"],
+            "associated_short_codes": ["995"],
+            "associated_ussd_codes": ["*995#"],
+            "associated_domains": ["moneymasterpsb.com", "gloworld.com"],
+            "associated_services": ["Mobile Banking", "Wallets"],
+            "legitimate_message_contexts": ["OTP Verification", "Transfer Alert"],
+            "transaction_contexts": ["Funds Transfer"],
+            "promotional_contexts": ["Wallet bonus promo"],
+            "verification": {
+              "sources": ["https://moneymasterpsb.com/"],
+              "last_verified": "2026-08-28",
+              "evidence_level": "REGULATED_FINANCIAL_PUBLIC_FILING",
+              "confidence": 1.0
+            }
+          }
+        ],
+        "product_relationships": [
+          {"parent_product": "Globacom Telecommunications", "child_product": "Moneymaster PSB", "type": "SUBSIDIARY_SERVICE"}
+        ]
+      },
+      "ussd_intelligence": {
+        "codes": [
+          {
+            "code": "*312#",
+            "service": "Data Services",
+            "product": "Glo Data Plans",
+            "purpose": "Subscribe to data plans",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          },
+          {
+            "code": "*310#",
+            "service": "Balance Check",
+            "product": "Glo Prepaid Voice",
+            "purpose": "Query account balances",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          },
+          {
+            "code": "*311#",
+            "service": "Recharge",
+            "product": "Glo Airtime",
+            "purpose": "Recharge paper/digital voucher",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          },
+          {
+            "code": "*303#",
+            "service": "Borrow Services",
+            "product": "Glo BoroMe",
+            "purpose": "Borrow airtime and data",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          },
+          {
+            "code": "*305#",
+            "service": "VAS Stop/Start",
+            "product": "Glo VAS",
+            "purpose": "VAS portal management",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          },
+          {
+            "code": "*996#",
+            "service": "NIN Status",
+            "product": "Glo Identity Management",
+            "purpose": "Link or verify NIN on Glo network",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          }
+        ],
+        "code_patterns": ["^\\*\\d{3}(?:\\*\\d+)*#$"],
+        "code_validation_rules": ["Code must start with * and end with #"]
+      },
+      "numbering_intelligence": {
+        "prefixes": ["0805", "0807", "0705", "0815", "0811", "0905", "0915"],
+        "number_formats": ["E164 (+234)", "NATIONAL_11_DIGIT (0805...)"],
+        "numbering_ranges": ["+2348050000000 to +2348059999999"],
+        "notes": ["Portability enabled cross-operator."]
+      },
+      "domain_intelligence": {
+        "official_domains": ["gloworld.com", "moneymasterpsb.com"],
+        "official_subdomains": ["hsi.gloworld.com", "selfcare.gloworld.com"],
+        "legitimate_url_patterns": [
+          "^https:\\/\\/([a-zA-Z0-9-]+\\.)*gloworld\\.com(\\/.*)?$",
+          "^https:\\/\\/([a-zA-Z0-9-]+\\.)*moneymasterpsb\\.com(\\/.*)?$"
+        ],
+        "domain_relationships": [
+          {"domain": "moneymasterpsb.com", "relationship": "SUBSIDIARY_PAYMENT_BANK"}
+        ],
+        "domain_rules": ["Domain must be owned by Globacom Ltd."]
+      },
+      "service_intelligence": {
+        "services": ["Voice", "Data", "Glo BoroMe", "Moneymaster PSB"],
+        "bundle_services": ["Glo Campus Data Booster", "Glo Bumper"],
+        "data_services": ["Glo HSI Data"],
+        "airtime_services": ["Glo BoroMe Airtime"],
+        "recharge_services": ["E-Top Up", "Recharge Pin"],
+        "account_services": ["Glo Cafe App"],
+        "notification_services": ["Balance Alerts", "Promo Notifications"],
+        "promotional_services": ["GloRewards", "Glo My-G"]
+      },
+      "message_intelligence": {
+        "legitimate_patterns": [
+          "Dear customer, your Glo Data bundle has been activated successfully.",
+          "Glo BoroMe: N{amount} credit has been added to your account."
+        ],
+        "transaction_patterns": ["Your Glo balance is N{balance}."],
+        "activation_patterns": ["Welcome to Glo My-G plan."],
+        "expiry_patterns": ["Your Glo data package expires in 2 days."],
+        "balance_patterns": ["Main balance: N{balance}. Dial *310# for details."],
+        "usage_notification_patterns": ["You have used 80% of your Glo HSI data plan."],
+        "recharge_patterns": ["Recharge of N{amount} successful."],
+        "promotional_patterns": ["Enjoy Unlimited Data with Glo Heavy Data Plans."],
+        "service_notification_patterns": ["Glo Network maintenance notice."],
+        "account_notification_patterns": ["NIN linked successfully to your Glo line."],
+        "action_request_patterns": ["Dial *996# to submit your NIN."],
+        "language_markers": ["Glo Cafe", "BoroMe", "Glo My-G", "Glo World"]
+      },
+      "fraud_intelligence": {
+        "impersonation_patterns": ["Glo Promo Desk", "Globacom Winner Dept"],
+        "credential_request_patterns": ["Reply with your Moneymaster PIN"],
+        "malicious_link_patterns": ["http://glo-free-data-2026.com"],
+        "spoofing_patterns": ["Sender ID 'GL0' replacing letter O with zero 0"],
+        "sender_mismatch_patterns": ["Sender 'Glo BoroMe' sending phishing links for banking credentials"],
+        "social_engineering_patterns": ["You won 1,000,000 NGN in Glo Everyday Bonanza, pay delivery charge"],
+        "urgency_patterns": ["URGENT: Your Glo SIM will be deactivated today if not updated"],
+        "generic_claim_patterns": ["Claim 10GB Glo Free Data from government relief fund"],
+        "suspicious_behavior_patterns": ["Sender sending Glo promos with non-Glo domains"]
+      },
+      "verification": {
+        "verification_sources": [
+          "NCC Regulatory Gazette",
+          "Globacom Public Service Registry"
+        ],
+        "last_verified": "2026-08-28",
+        "evidence_level": "OPERATOR_REGULATOR_CROSS_CORROBORATED",
+        "confidence": 1.0,
+        "verification_notes": ["Validated against NCC harmonized shortcode standards."]
+      }
+    },
+    {
+      "identity": {
+        "entity_id": "NG-TEL-9MOBILE",
+        "canonical_name": "Emerging Markets Telecommunication Services Limited (EMTS)",
+        "aliases": ["9mobile", "9Mobile", "Etisalat NG"],
+        "brand_names": ["9mobile", "9x Offer", "9mobile APN", "9Pay"],
+        "institution_type": "MOBILE_NETWORK_OPERATOR"
+      },
+      "regulatory_context": {
+        "regulatory_status": "LICENSED",
+        "regulator": "Nigerian Communications Commission (NCC)",
+        "license_context": "Unified Access Service Licence (UASL)",
+        "verification_sources": ["https://www.ncc.gov.ng/", "https://9mobile.com.ng/"]
+      },
+      "sender_identity": {
+        "sender_ids": [
+          "9mobile", "9Mobile", "9mobile APN", "My 9mobile"
+        ],
+        "short_codes": ["200", "312", "303", "305", "321", "310", "311"],
+        "sender_id_rules": [
+          "Must contain '9mobile' or '9Mobile' substring",
+          "Legacy 'Etisalat' sender IDs are deprecated and flagged if claiming active identity"
+        ],
+        "sender_id_variants": [
+          {"raw": "9Mobile", "canonical": "9mobile"}
+        ],
+        "sender_context_rules": [
+          "9mobile APN restricted to internet/data access point configurations"
+        ]
+      },
+      "product_intelligence": {
+        "products": [
+          {
+            "product_id": "9MOB-PROD-MORECLIQUE",
+            "canonical_name": "morecliq",
+            "aliases": ["Cliq", "9mobile Cliq"],
+            "brand_name": "morecliq",
+            "parent_provider": "NG-TEL-9MOBILE",
+            "product_type": "PREPAID_VOICE_DATA",
+            "product_status": "ACTIVE",
+            "associated_sender_ids": ["9mobile"],
+            "associated_short_codes": ["312"],
+            "associated_ussd_codes": ["*312#"],
+            "associated_domains": ["9mobile.com.ng"],
+            "associated_services": ["Tariff Plans"],
+            "legitimate_message_contexts": ["Migration confirmation", "Data bonus alert"],
+            "transaction_contexts": ["Plan subscription"],
+            "promotional_contexts": ["Cliq bonus offers"],
+            "verification": {
+              "sources": ["https://9mobile.com.ng/"],
+              "last_verified": "2026-08-28",
+              "evidence_level": "DIRECT_OPERATOR_TELEMETRY",
+              "confidence": 0.95
+            }
+          }
+        ],
+        "product_relationships": [
+          {"parent_product": "9mobile Network", "child_product": "morecliq", "type": "TARIFF_PLAN"}
+        ]
+      },
+      "ussd_intelligence": {
+        "codes": [
+          {
+            "code": "*312#",
+            "service": "Data Services",
+            "product": "9mobile Data",
+            "purpose": "Subscribe to 9mobile data plans",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          },
+          {
+            "code": "*310#",
+            "service": "Balance Inquiry",
+            "product": "9mobile Account Services",
+            "purpose": "Check airtime and data balance",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          },
+          {
+            "code": "*311#",
+            "service": "Recharge",
+            "product": "9mobile Airtime",
+            "purpose": "Load airtime pin",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          },
+          {
+            "code": "*303#",
+            "service": "Borrow Airtime",
+            "product": "9mobile Morecredit",
+            "purpose": "Borrow airtime/data",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          },
+          {
+            "code": "*305#",
+            "service": "VAS Unsubscribe",
+            "product": "9mobile VAS",
+            "purpose": "Manage active subscriptions",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          },
+          {
+            "code": "*996#",
+            "service": "NIN Verification",
+            "product": "9mobile KYC Services",
+            "purpose": "Link NIN to line",
+            "status": "HARMONIZED_ACTIVE",
+            "verified": true,
+            "verification_sources": ["https://consumer.ncc.gov.ng/"]
+          }
+        ],
+        "code_patterns": ["^\\*\\d{3}(?:\\*\\d+)*#$"],
+        "code_validation_rules": ["Code must start with * and end with #"]
+      },
+      "numbering_intelligence": {
+        "prefixes": ["0809", "0818", "0817", "0909", "0908"],
+        "number_formats": ["E164 (+234)", "NATIONAL_11_DIGIT (0809...)"],
+        "numbering_ranges": ["+2348090000000 to +2348099999999"],
+        "notes": ["Portability enabled cross-operator."]
+      },
+      "domain_intelligence": {
+        "official_domains": ["9mobile.com.ng"],
+        "official_subdomains": ["my.9mobile.com.ng", "care.9mobile.com.ng"],
+        "legitimate_url_patterns": [
+          "^https:\\/\\/([a-zA-Z0-9-]+\\.)*9mobile\\.com\\.ng(\\/.*)?$"
+        ],
+        "domain_relationships": [],
+        "domain_rules": ["Must be registered under EMTS Nigeria."]
+      },
+      "service_intelligence": {
+        "services": ["Voice", "Data", "9Pay", "USSD Services"],
+        "bundle_services": ["Moreflex", "Morelife"],
+        "data_services": ["9mobile Super Data"],
+        "airtime_services": ["Morecredit"],
+        "recharge_services": ["E-topup", "Logical Pins"],
+        "account_services": ["My 9mobile App"],
+        "notification_services": ["Data Expiry", "Low Balance"],
+        "promotional_services": ["9x Offer"]
+      },
+      "message_intelligence": {
+        "legitimate_patterns": [
+          "Dear Subscriber, your 9mobile data plan has been renewed.",
+          "Your NIN linking status on 9mobile is successful."
+        ],
+        "transaction_patterns": ["Account balance N{balance}."],
+        "activation_patterns": ["Welcome to 9mobile!"],
+        "expiry_patterns": ["Your data plan will expire on {expiry_date}."],
+        "balance_patterns": ["Balance: N{balance}. Dial *310#."],
+        "usage_notification_patterns": ["You have used 80% of your 9mobile data."],
+        "recharge_patterns": ["Recharge of N{amount} successful."],
+        "promotional_patterns": ["Get 9 times the value of your recharge on 9x Offer."],
+        "service_notification_patterns": ["9mobile network update."],
+        "account_notification_patterns": ["Profile update complete."],
+        "action_request_patterns": ["Dial *996# to check your SIM registration and NIN link."],
+        "language_markers": ["9mobile", "morecliq", "moreflex", "9Pay"]
+      },
+      "fraud_intelligence": {
+        "impersonation_patterns": ["9mobile Reward Dept", "Etisalat Customer Care (Legacy Impersonation)"],
+        "credential_request_patterns": ["Reply with OTP to prevent 9mobile line disconnection"],
+        "malicious_link_patterns": ["http://9mobile-bonus-data.org"],
+        "spoofing_patterns": ["Sender ID '9m0bile' replacing 'o' with '0'"],
+        "sender_mismatch_patterns": ["9mobile sender ID directing users to external phishing links"],
+        "social_engineering_patterns": ["Your line was randomly picked for 250,000 NGN in 9mobile promo"],
+        "urgency_patterns": ["URGENT: Your line will be permanently blocked in 30 minutes!"],
+        "generic_claim_patterns": ["Free 20GB 9mobile Data Claim"],
+        "suspicious_behavior_patterns": ["Unverified shortcode demanding airtime transfer"]
+      },
+      "verification": {
+        "verification_sources": [
+          "NCC Harmonized Shortcode Registry",
+          "EMTS Official Releases"
+        ],
+        "last_verified": "2026-08-28",
+        "evidence_level": "OPERATOR_REGULATOR_CROSS_CORROBORATED",
+        "confidence": 1.0,
+        "verification_notes": ["Verified against official telecom releases."]
+      }
+    }
+  ],
+  "cross_provider_intelligence": {
+    "harmonized_short_codes": [
+      {"code": "300", "purpose": "Call Centre Services / Customer Care"},
+      {"code": "310", "purpose": "Balance Enquiry"},
+      {"code": "311", "purpose": "Recharge Services"},
+      {"code": "312", "purpose": "Data Plan Subscriptions"},
+      {"code": "303", "purpose": "Borrow Airtime / Data Services (Credit Advance)"},
+      {"code": "305", "purpose": "Value Added Services (VAS) Stop / Start Management"},
+      {"code": "321", "purpose": "Share Airtime / Data Services"},
+      {"code": "996", "purpose": "NIN Verification, Linking, and SIM Registration Status"},
+      {"code": "112", "purpose": "Emergency Services (NCC Emergency Response Centre)"},
+      {"code": "2442", "purpose": "Do Not Disturb (DND) Management"}
+    ],
+    "common_ussd_patterns": ["^\\*\\d{3}(?:\\*\\d+)*#$"],
+    "numbering_rules": [
+      "All mobile numbers in Nigeria must strictly map to 11 digits nationally or E.164 (+234 format)",
+      "Mobile prefixes begin with 070, 080, 081, 090, or 091"
+    ],
+    "telecom_language_markers": [
+      "NIN", "SIM", "Data", "Airtime", "Bonus", "Recharge", "Expired", "Expire", "Renew", "Balance", "Activation"
+    ],
+    "shared_service_patterns": [
+      "NIN-SIM linking mandates apply uniformly across all active operators.",
+      "Harmonized USSD codes function identically on all GSM service providers."
+    ],
+    "shared_product_patterns": [
+      "Mobile Data, Electronic Top Up (VTU), Credit Advance, Payment Service Banks (PSB)."
+    ],
+    "cross_provider_conflict_rules": [
+      "If a numeric code is listed as a universal harmonized shortcode (e.g., 312), it must not be attributed exclusively to a single carrier as a proprietary code."
+    ]
+  },
+  "contextual_exceptions": {
+    "legitimate_urgency_exceptions": [
+      {
+        "pattern": "Your data bundle will expire in {time}",
+        "allowed_senders": ["MTN", "Airtel", "GLO DATA", "9mobile"],
+        "conditions": ["Must not contain external link requesting banking credentials"]
+      }
+    ],
+    "legitimate_expiry_exceptions": [
+      {
+        "words": ["expire", "expired", "expiry"],
+        "context": "Routine bundle lifecycle notifications sent by verifiable MNO Sender IDs or USSD gateways."
+      }
+    ],
+    "legitimate_url_exceptions": [
+      {
+        "allowed_domains": ["mtn.ng", "airtel.com.ng", "gloworld.com", "9mobile.com.ng"],
+        "conditions": ["Must use valid HTTPS certificate matching registered operator domain"]
+      }
+    ],
+    "legitimate_promotional_exceptions": [
+      {
+        "words": ["bonus", "offer", "discount"],
+        "allowed_senders": ["MTN4ME", "AirtelOffer", "GLO PROMO", "9x Offer"],
+        "conditions": ["Must direct action exclusively to official USSD codes (e.g., *121#, *312#)"]
+      }
+    ],
+    "legitimate_action_request_exceptions": [
+      {
+        "words": ["renew", "recharge", "balance"],
+        "context": "Customer balance check or renewal alerts directing to harmonized USSD code (e.g. *310#, *312#, *311#)"
+      }
+    ],
+    "legitimate_credential_context_exceptions": [
+      {
+        "words": ["OTP", "verification code"],
+        "context": "Transactional auth messages originating from verified PSB payment banks (MoMo PSB, Smartcash PSB, Moneymaster PSB, 9Pay)",
+        "conditions": ["Must explicitly state 'Do not share this OTP with anyone'"]
+      }
+    ],
+    "sender_context_exceptions": [
+      {
+        "sender_id": "MTNN-NIN",
+        "valid_keywords": ["NIN", "linking", "verification", "NIMC", "*996#"]
+      }
+    ],
+    "multi_signal_exceptions": [
+      {
+        "rule": "Presence of lifecycle words ('expire', 'renew') combined with urgency words ('urgent', 'today') is SAFE if sender matches verified provider AND URL strictly matches operator official domain AND no credential/financial request is present."
+      }
+    ]
+  },
+  "evidence_policy": {
+    "evidence_types": [
+      "NCC_HARMONIZED_SHORTCODE_GAZETTE",
+      "DIRECT_OPERATOR_TELEMETRY",
+      "OPERATOR_PUBLIC_FILING",
+      "REGULATED_FINANCIAL_PUBLIC_FILING",
+      "CROSS_CORROBORATED_TELEMETRY"
+    ],
+    "evidence_strength_levels": {
+      "CRITICAL": "Regulator mandate or cryptographically verified operator gateway",
+      "HIGH": "Direct operator telemetry cross-corroborated by independent logs",
+      "MEDIUM": "Single-source indexed telemetry",
+      "LOW": "Unverified external report"
+    },
+    "positive_evidence": [
+      "Exact match with NCC harmonized code table",
+      "Official operator TLS certificate on destination domain",
+      "Sender ID registered on operator A2P registry"
+    ],
+    "negative_evidence": [
+      "Sender ID contains character-substitution (homograph attacks)",
+      "URL domain hosted on suspicious TLD or unverified shortener (e.g., .site, .top)",
+      "Unsolicited request for sensitive financial PIN/OTP"
+    ],
+    "neutral_evidence": [
+      "Presence of standard lifecycle words ('expire', 'balance', 'renew', 'activation')",
+      "Message received during off-peak hours"
+    ],
+    "contradiction_rules": [
+      "If a message claims to be from an MNO but contains a domain not matching official_domains, mark evidence as CONTRADICTORY (High Threat Risk)."
+    ],
+    "corroboration_rules": [
+      "At least two independent telemetry signals required to promote status from 'observed' to 'verified'."
+    ],
+    "independence_rules": [
+      "Data sources on different subnets or distinct regulatory/operator boundaries are deemed independent."
+    ],
+    "confidence_calibration_rules": [
+      "1.0 = Statutory Regulator Standard + Direct Operator Telemetry",
+      "0.8 - 0.99 = Multi-source verified Telemetry",
+      "0.5 - 0.79 = Single-source telemetry",
+      "< 0.5 = Unverified / Suspicious"
+    ]
+  },
+  "conflict_resolution": {
+    "sender_vs_content": "Sender ID claim is overruled if content contains fraudulent request for PIN/OTP or non-operator domain.",
+    "sender_vs_domain": "Domain match takes precedence. Sender ID 'MTN' pointing to 'http://mtn-bonus.site' resolves to FRAUD (High Confidence).",
+    "provider_vs_product": "If Sender ID is 'Airtel' but offers 'MTN Topit', resolve as SENDER_MISMATCH / FRAUD.",
+    "product_vs_service": "Verify product maps to parent provider's service list before marking contextual match as legitimate.",
+    "domain_vs_message": "Official domain within message neutralizes contextual fraud flags on lifecycle words ('expire', 'renew').",
+    "legitimate_signal_vs_fraud_signal": "Fraud signals (e.g., credential harvesting) strictly override legitimate signal indicators.",
+    "registry_vs_model": "Static evidence registry overrides ML probabilistic score when direct contradiction exists.",
+    "unresolved_conflict_policy": "Default status to 'EVALUATION_REQUIRED' with evidence details populated for forensic audit."
+  },
+  "detection_policies": {
+    "sender_matching": "Exact match required against providers[].sender_identity.sender_ids; account for registered case variants.",
+    "provider_matching": "Map via matching sender ID, shortcode, or phone prefix to provider identity.",
+    "product_matching": "Corroborate product brand name against operator product registry.",
+    "domain_matching": "Strict match against provider official_domains and legitimate_url_patterns.",
+    "url_matching": "Parse full URL. Resolve shorteners. Any link not matching operator official domains triggers high-priority threat flag.",
+    "ussd_matching": "Match against harmonized_short_codes or provider ussd_intelligence.",
+    "numbering_matching": "Validate sender number against numbering_intelligence prefixes and formats.",
+    "service_matching": "Verify requested service against known service capabilities of parent operator.",
+    "message_context_matching": "Evaluate message for lifecycle words. Perform contextual checking; never flag 'expire', 'renew', or 'balance' as fraud without malicious intent signals.",
+    "fraud_signal_combination": "Flag FRAUD if [Unverified Domain + Financial PIN Request] OR [Homograph Sender ID + Urgency Signal].",
+    "evidence_weighting": "Sum weights of positive and negative evidence; trigger threat state if negative evidence weight exceeds critical threshold.",
+    "confidence_calibration": "Calculated dynamically based on evidence level matrix.",
+    "contradiction_handling": "Flag message for manual/deeper forensic inspection when contradictory evidence signals exist.",
+    "unknown_entity_handling": "Assign category 'UNKNOWN_ENTITY', status 'UNOBSERVED', and confidence level 0.0.",
+    "adversarial_resistance": "Strip non-printable Unicode characters, resolve homoglyphs, and normalize text prior to running string matching.",
+    "final_decision_policy": "Outputs JSON object with decision (LEGITIMATE, PROMOTIONAL, SUSPICIOUS, FRAUD), confidence score, evidence trail, and contextual metadata breakdown."
+  }
+}

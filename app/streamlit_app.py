@@ -1,4 +1,3 @@
-
 import streamlit as st
 import sys
 from pathlib import Path
@@ -21,7 +20,7 @@ st.set_page_config(
 )
 
 st.title("ANWAAD")
-st.caption("Context Intelligence Engine · v0.1")
+st.caption("Context Intelligence & Fraud Detection Engine · Built with Nigerian Realities, Ready for Global Threats · v0.1")
 
 mode = st.radio(
     "What do you want to check?",
@@ -159,11 +158,11 @@ st.caption(
     "Think you've been defrauded or targeted by cybercrime? Get official help"
 )
 
-st.markdown(
-    "Cybercrime → NPF-NCCC  \n"
-    "Cyber incident → ngCERT  \n"
-    "Digital-lending complaint → FCCPC"
-)
+st.markdown("""
+* **Cybercrime:** [NPF-NCCC (Nigeria Police Force - National Cybercrime Center)](https://nccc.npf.gov.ng)
+* **Cyber incident:** [ngCERT (Nigerian Computer Emergency Response Team)](https://cert.gov.ng)
+* **Digital-lending complaint:** [FCCPC (Federal Competition & Consumer Protection Commission)](https://fccpc.gov.ng)
+""")
 
 st.markdown(
     "**Stay sharp**  \n"

@@ -9,7 +9,6 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-# Import the one authoritative intelligence engine.
 from intelligence_engine import (
     analyze_sms,
     analyze_url,
@@ -27,13 +26,12 @@ from app.footer import render_footer
 
 st.set_page_config(
     page_title="ANWAAD",
-    page_icon="🛡️",
+    page_icon="⌕",
     layout="centered",
     initial_sidebar_state="collapsed",
 )
 
 
-# Keep the product name separate from the model release.
 st.title("ANWAAD")
 st.caption("SMS Anti-Fraud Intelligence in Your Hands.")
 
@@ -83,13 +81,14 @@ def get_state(result):
 
 
 def state_icon(state):
+    # Cross-platform compatible indicators
     return {
-        "VERIFIED": "⚪",
-        "LOW RISK": "🟢",
-        "UNKNOWN": "🟡",
-        "SUSPICIOUS": "🟠",
-        "HIGH RISK": "🔴",
-    }.get(state, "🟡")
+        "VERIFIED": "✓",
+        "LOW RISK": "●",
+        "UNKNOWN": "○",
+        "SUSPICIOUS": "!",
+        "HIGH RISK": "⚠",
+    }.get(state, "○")
 
 
 def state_text(state):
@@ -144,7 +143,6 @@ def show_result(result, kind):
         "Send feedback",
         key=f"feedback_submit_{kind}",
     ):
-        # Feedback is acknowledged but not used for automatic retraining.
         st.success(
             "Thanks. Your feedback will be reviewed separately."
         )

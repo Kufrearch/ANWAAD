@@ -1,7 +1,9 @@
 streamlit
-gdown
-joblib
-xgboost
+pandas
+numpy
 scikit-learn
+xgboost
 sentence-transformers
+joblib
 requests
+pyarrow

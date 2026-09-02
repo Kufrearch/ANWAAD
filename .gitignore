@@ -1,12 +1,44 @@
-
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
-*.npy
-*.parquet
-*.joblib
-*.bin
-data/derived/
+
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+
+logs/
+feedback/
+*.log
+
+data/raw/
 data/observations/
-artifacts/
-models/
+data/evaluation/
+
+data/processed/
+data/splits/
+
+data/derived/
+
+*.csv
+*.parquet
+
+# Keep production model artifacts available.
+!models/
+!models/*.joblib
+
+# Keep production registries.
+!data/
+!data/registrations/
+!data/registrations/*.json
+
+# Never commit the Colab notebook itself unless intentionally desired.
+*.ipynb_checkpoints/
+# ANWAAD development artifacts
+production_repo/
+artifacts/train_embeddings.npy
+artifacts/validation_embeddings.npy
+artifacts/test_embeddings.npy
+# ANWAAD sensitive and local files

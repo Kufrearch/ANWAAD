@@ -1,80 +1,64 @@
 # ANWAAD
 
-ANWAAD is a context intelligence engine for analyzing potentially fraudulent
-SMS messages, URLs and phone numbers.
+ANWAAD is a context intelligence system for analyzing potentially fraudulent SMS messages, URLs, and phone numbers.
 
 ## Model
 
-ANWAAD v0.1
+Product Name: ANWAAD
+Current model release: ANWAAD v0.1
 
-The ML classifier is only one evidence source. Final decisions combine:
+The product identity remains ANWAAD, while individual model iterations are tracked separately under release versions.
 
-- ML evidence
+## Analysis System
+
+The machine learning classifier is one component of a broader architecture. Final risk decisions combine:
+
+- message intelligence
 - telecom registry evidence
 - financial registry evidence
-- message/entity evidence
+- observed-message patterns
 - URL intelligence
 - phone intelligence
-- contextual evidence
-- contradiction handling
+- machine-learning evidence
+- evidence fusion
+
+External provider intelligence is treated as evidence, not as the ANWAAD verdict.
 
 ## Analysis Modes
 
-### Analyze Message
-Analyzes:
-- message content
-- sender identity
-- URLs
-- phone numbers
-- USSD codes
-- credential-related language
-- financial context
-
-### Verify URL
-Allows a URL to be analyzed independently.
-
-### Check Number
-Allows a phone number to be analyzed independently.
+1. **Analyze SMS:** Evaluates complete message text, sender ID, embedded URLs, phone numbers, USSD codes, and financial/credential language.
+2. **Check URL:** Inspects website links independently against known domain registries and threat parameters.
+3. **Check Number:** Evaluates phone numbers based on observable structural evidence.
 
 ## Risk States
 
-- VERIFIED
-- LOW RISK
-- UNKNOWN
-- SUSPICIOUS
-- HIGH RISK
+- **VERIFIED:** Strong independent evidence supports the entity context.
+- **LOW RISK:** No meaningful suspicious evidence was detected.
+- **UNKNOWN:** Insufficient evidence exists to make a strong determination.
+- **SUSPICIOUS:** Specific warning signs or anomalies were detected.
+- **HIGH RISK:** Multiple strong warning signs or corroborating fraud signals detected.
 
-Unknown does not mean safe.
-Low risk does not mean guaranteed safe.
-A valid phone number does not mean the operator is trustworthy.
+*Important Caveats:*
+- `UNKNOWN` does not mean safe.
+- `LOW RISK` does not mean guaranteed safe.
+- A valid or active phone number does not prove operator identity or intent.
 
-## Privacy
+## Data Privacy & Retention
 
-ANWAAD should not unnecessarily persist:
+To preserve user privacy, ANWAAD avoids unnecessary persistence or logging of:
 
-- raw SMS
-- account numbers
-- phone numbers
-- OTPs
-- PINs
-- passwords
-- BVN
-- NIN
-- personal identity information
+- Raw SMS text content
+- Account numbers & payment credentials
+- One-Time Passwords (OTPs), PINs, or passwords
+- Bank Verification Numbers (BVN) or National Identification Numbers (NIN)
+- Unnecessary personal phone numbers or identity attributes
 
-## External Intelligence
+## Feedback & Human-in-the-Loop
 
-IPQS is treated as an external evidence provider.
-
-Its scores are not presented as the ANWAAD verdict.
-
-## Feedback
-
-User feedback is collected separately and must be reviewed before it becomes
-training data.
+User feedback collected via the UI is logged independently for audit and manual review. It is never injected into automated model retraining pipelines.
 
 ## Development
 
-The model-training notebook is:
+Model build notebook:
 
 ANWAAD_Model_Build_Pipeline.ipynb

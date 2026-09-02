@@ -35,7 +35,7 @@ st.set_page_config(
 
 # Keep the product name separate from the model release.
 st.title("ANWAAD")
-st.caption("Context Intelligence Engine · v0.1")
+st.caption("Anti-Fraud Model Built with Nigerian Realities, Ready for Global Threats • v0.1")
 
 st.write(
     "Inspect suspicious messages, websites and phone numbers "
